@@ -1,0 +1,35 @@
+.wrapper {
+    padding: 1.8rem;
+    background-color: #1d1d1d;
+}
+
+.form {
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.button__container {
+    background-color: #fff;
+    padding-right: 2rem;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.button__container button {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    background-color: #1d1d1d;
+}
+
+.search {
+    padding: 1.5rem;
+    flex-grow:20;
+    font-size: 1.5rem;
+    outline: none;
+}
