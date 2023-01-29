@@ -25,21 +25,19 @@ const SearchForm = () => {
     });
 
     return (
-        <div className={classes.wrapper}>
-            <form className={classes.form} onSubmit={formik.handleSubmit}>
-                <input
-                    className={classes.search}
-                    name='search'
-                    id='search'
-                    type='text'
-                    onChange={formik.handleChange}
-                    value={formik.values.search}
-                    placeholder='start your query...' />
-                <div className={classes.button__container}>
-                    <button type='submit'>search</button>
-                </div>
-            </form>
-        </div>
+        <form className={classes.form} onSubmit={formik.handleSubmit}>
+            <input
+                className={classes.search}
+                name='search'
+                id='search'
+                type='text'
+                onChange={formik.handleChange}
+                value={formik.values.search}
+                placeholder='start your query...' />
+            <div className={classes.button__container}>
+                <button type='submit'>search</button>
+            </div>
+        </form>
     )
 
 }
