@@ -1,26 +1,23 @@
 .form {
     width: 100%;
-    max-width: 700px;
     display: flex;
     align-items: center;
-    padding: 2rem 2.5rem;
+    justify-content: center;
+    padding: 2.5rem 2rem;
     background-color: #1d1d1d;
 }
 
-.button__container {
-   
+.form .search {
+    width: min-content;
+    border: 1px solid white;
+    background-color: #fff;
+    outline: none;
+    font-size: 1.8rem;
+    color: #fff;
+    background-color: #1d1d1d;
+    padding: 0 2rem;
 }
 
-.button__container button {
-  
-}
-
-form .search {
-   flex: 1;
-   background-color: #fff;
-   border: 0;
-   outline: none;
-   padding: 1.5rem 2rem;
-   font-size: 2rem;
-   color: #1d1d1d; 
+::placeholder {
+    color: inherit;
 }

@@ -26,6 +26,9 @@ const SearchForm = () => {
 
     return (
         <form className={classes.form} onSubmit={formik.handleSubmit}>
+             <div className={classes.button__container}>
+                <button type='submit'>search</button>
+            </div>
             <input
                 className={classes.search}
                 name='search'
@@ -33,10 +36,7 @@ const SearchForm = () => {
                 type='text'
                 onChange={formik.handleChange}
                 value={formik.values.search}
-                placeholder='start your query...' />
-            <div className={classes.button__container}>
-                <button type='submit'>search</button>
-            </div>
+                placeholder='Type and search your favourite movies by title...' />
         </form>
     )
 
