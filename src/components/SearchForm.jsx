@@ -1,11 +1,17 @@
 import React, { useRef } from "react";
-import './SearchForm.css';
+import  classes from './SearchForm.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useFormik } from "formik";
 
 const SearchForm = () => {
 
-    const refs = [useRef(null), useRef(null), useRef(null), useRef(null), useRef(null)]
+    const refs = [
+        useRef(null),
+        useRef(null),
+        useRef(null),
+        useRef(null),
+        useRef(null)
+    ];
 
     const expandeInput = () => {
         refs.forEach(e => e.current.classList.add('active'));
@@ -20,8 +26,8 @@ const SearchForm = () => {
         if (!values.search) {
             errors.search = 'search baar is empty'
         };
-
-        return errors
+        console.log(errors.search);
+        return errors;
     }
 
     const formik = useFormik({
@@ -34,8 +40,10 @@ const SearchForm = () => {
         },
     });
 
+    
+
     return (
-        <form ref={refs[0]} className="search-box" onSubmit={formik.handleSubmit}>
+        <form ref={refs[0]} className={`${classes.search_box} ${active}`} onSubmit={formik.handleSubmit}>
             <input ref={refs[1]}
                 name='search'
                 id='search'
