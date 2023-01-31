@@ -1,5 +1,6 @@
 import React from "react";
 import classes from './SearchForm.module.css';
+import search__icon from '../assets/magnifying-glass-solid.svg';
 import { useFormik } from "formik";
 
 const SearchForm = () => {
@@ -26,17 +27,19 @@ const SearchForm = () => {
 
     return (
         <form className={classes.form} onSubmit={formik.handleSubmit}>
-             <div className={classes.button__container}>
-                <button type='submit'>search</button>
+            <div>
+                <input
+                    className={classes.search__bar}
+                    name='search'
+                    id='search'
+                    type='text'
+                    onChange={formik.handleChange}
+                    value={formik.values.search}
+                    placeholder='Type and search your favourite movies by title...' />
+                <button type='submit' className={classes.search__button}>
+                    <img src={search__icon} alt='start searching'></img>
+                </button>
             </div>
-            <input
-                className={classes.search}
-                name='search'
-                id='search'
-                type='text'
-                onChange={formik.handleChange}
-                value={formik.values.search}
-                placeholder='Type and search your favourite movies by title...' />
         </form>
     )
 
