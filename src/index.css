@@ -2,15 +2,5 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 1rem;
   font-family: 'Italiana', serif;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-img {
-  max-width: 100%;
-  display: block;
 }
