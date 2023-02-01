@@ -7,20 +7,10 @@ const SearchForm = () => {
 
     const [active, setActive] = useState('');
 
-    /*const refs = [
-        useRef(null),
-        useRef(null),
-        useRef(null),
-        useRef(null),
-        useRef(null)
-    ];*/
-
     const expandeInput = () => {
-        //refs.forEach(e => e.current.classList.add('active'));
         setActive(classes.active);
     }
     const closeInput = () => {
-        //refs.forEach(e => e.current.classList.remove('active'));
         setActive('');
     }
 
@@ -67,26 +57,6 @@ const SearchForm = () => {
             </div>
         </form>
     )
-
 }
 
 export default SearchForm;
-
-/*
-<div className='error'>{formik.errors.search}</div>
-
-<form className={classes.form} onSubmit={formik.handleSubmit}>
-            <input
-                className={classes.search__bar}
-                name='search'
-                id='search'
-                type='text'
-                onChange={formik.handleChange}
-                value={formik.values.search}
-                placeholder='Type and search your favourite movies by title...' />
-            <button type='submit' className={classes.search__button}>
-                <img src={search__icon} alt='start searching'></img>
-            </button>
-        </form>
-
-*/
