@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import classes from './SearchForm.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Select from "./Select";
 import { useFormik } from "formik";
 
 const SearchForm = () => {
@@ -52,6 +53,10 @@ const SearchForm = () => {
             </button>
             <div className={`${classes.cancel_btn} ${active}`} type="button" onClick={closeInput}>
                 <FontAwesomeIcon icon="times" />
+            </div>
+            <div className={`${classes.wrapper} ${active}`}>
+                <Select />
+                <Select />
             </div>
         </form>
     )

@@ -7,7 +7,7 @@
 }
 
 .search_box.active {
-    width: 450px;
+    width: 600px;
 }
 
 .search_box input {
@@ -20,11 +20,14 @@
     padding: 0 20px 0 20px;
     outline: none;
     opacity: 0;
-    caret-color: #000;
 }
 
 .search_box input.active {
-    opacity: 1
+    opacity: 1;
+}
+
+.search_box input:focus {
+    caret-color: #000;
 }
 
 .search_box .search_btn {
@@ -69,10 +72,11 @@
     color: #fff;
     cursor: pointer;
     transition: all 0.5s 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition-delay: .2s;
 }
 
 .search_box .cancel_btn.active {
-    right: -40px;
+    top: 100px;
     transform: translateY(-50%) rotate(360deg);
 }
 
@@ -83,3 +87,21 @@
 .search_box .submit_btn.active {
     z-index: 2;
 }
+
+.search_box .wrapper {
+    position: absolute;
+    display: flex;
+    gap: 4rem;
+    justify-content: center;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all .5s -.1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: -1;
+}
+
+.search_box .wrapper.active {
+    top: 100px;
+    z-index: 0;
+} 
