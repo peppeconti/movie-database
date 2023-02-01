@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import  classes from './SearchForm.module.css';
+import classes from './SearchForm.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useFormik } from "formik";
 
@@ -33,8 +33,6 @@ const SearchForm = () => {
             console.log(values)
         },
     });
-
-    
 
     return (
         <form className={`${classes.search_box} ${active}`} onSubmit={formik.handleSubmit}>
