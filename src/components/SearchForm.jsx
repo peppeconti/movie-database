@@ -4,6 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Select from "./Select";
 import { useFormik } from "formik";
 
+const options = [
+    {value: 'movies', label: 'Movies'},
+    {value: 'series', label: 'Series'},
+    {value: 'ciccio', label: 'Ciccio'}
+];
+
 const SearchForm = () => {
 
     const [active, setActive] = useState('');
@@ -55,7 +61,7 @@ const SearchForm = () => {
                 <FontAwesomeIcon icon="times" />
             </div>
             <div className={`${classes.wrapper} ${active}`}>
-                <Select />
+                <Select options={options} />
                 <Select />
             </div>
         </form>

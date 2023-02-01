@@ -78,6 +78,7 @@
 .search_box .cancel_btn.active {
     top: 100px;
     transform: translateY(-50%) rotate(360deg);
+    z-index: 2;
 }
 
 .search_box .submit_btn {
@@ -90,10 +91,11 @@
 
 .search_box .wrapper {
     position: absolute;
-    display: flex;
-    gap: 4rem;
-    justify-content: center;
-    width: 50%;
+    display: block;
+    gap: 2rem;
+    justify-content: flex-start;
+    width: 100%;
+    border: 1px solid red;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

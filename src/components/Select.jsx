@@ -1,16 +1,19 @@
 import React from "react";
-import classes from './Select.module.css';
+import Select from 'react-select';
 
-const Select = () => {
+const CustomSelect = ({ onChange, options, value, className }) => {
+
+    const defaultValue = '';
 
     return (
-        <select>
-            <option>Ciccio</option>
-            <option>Franco</option>
-            <option>Gianni</option>
-            <option>Piero</option>
-        </select>
+        <div className={className}>
+            <Select
+                onChange={onChange}
+                value={value}
+                options={options}
+            />
+        </div>
     )
 }
 
-export default Select;
+export default CustomSelect;
