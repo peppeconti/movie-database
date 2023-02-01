@@ -27,7 +27,7 @@
     opacity: 1
 }
 
-.search_box .search-btn {
+.search_box .search_btn {
     height: 60px;
     width: 60px;
     color: #232323;
@@ -60,7 +60,7 @@
     transform: translateY(-50%) rotate(360deg);
 }
 
-.search_box .cancel-btn {
+.search_box .cancel_btn {
     position: absolute;
     right: 20px;
     top: 50%;
@@ -71,15 +71,15 @@
     transition: all 0.5s 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.search_box .cancel-btn.active {
+.search_box .cancel_btn.active {
     right: -40px;
     transform: translateY(-50%) rotate(360deg);
 }
 
-.search_box .submit-btn {
+.search_box .submit_btn {
     z-index: 0;
 }
 
-.search_box .submit-btn.active {
+.search_box .submit_btn.active {
     z-index: 2;
 }

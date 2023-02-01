@@ -1,23 +1,27 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import  classes from './SearchForm.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useFormik } from "formik";
 
 const SearchForm = () => {
 
-    const refs = [
+    const [active, setActive] = useState('');
+
+    /*const refs = [
         useRef(null),
         useRef(null),
         useRef(null),
         useRef(null),
         useRef(null)
-    ];
+    ];*/
 
     const expandeInput = () => {
-        refs.forEach(e => e.current.classList.add('active'));
+        //refs.forEach(e => e.current.classList.add('active'));
+        setActive(classes.active);
     }
     const closeInput = () => {
-        refs.forEach(e => e.current.classList.remove('active'));
+        //refs.forEach(e => e.current.classList.remove('active'));
+        setActive('');
     }
 
     const validate = values => {
@@ -43,21 +47,22 @@ const SearchForm = () => {
     
 
     return (
-        <form ref={refs[0]} className={`${classes.search_box} ${active}`} onSubmit={formik.handleSubmit}>
-            <input ref={refs[1]}
+        <form className={`${classes.search_box} ${active}`} onSubmit={formik.handleSubmit}>
+            <input
+                className={active}
                 name='search'
                 id='search'
                 type='text'
                 onChange={formik.handleChange}
                 value={formik.values.search}
                 placeholder='Type and search your favourite movies by title...' />
-            <button ref={refs[2]} className="search-btn" type="button" onClick={expandeInput}>
+            <button className={`${classes.search_btn} ${active}`} type="button" onClick={expandeInput}>
                 <FontAwesomeIcon icon="search" />
             </button>
-            <button ref={refs[3]} className="search-btn submit-btn" type="submit">
+            <button className={`${classes.search_btn} ${classes.submit_btn} ${active}`} type="submit">
                 <FontAwesomeIcon icon="search" />
             </button>
-            <div ref={refs[4]} className="cancel-btn" type="button" onClick={closeInput}>
+            <div className={`${classes.cancel_btn} ${active}`} type="button" onClick={closeInput}>
                 <FontAwesomeIcon icon="times" />
             </div>
         </form>
