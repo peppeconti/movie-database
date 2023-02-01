@@ -63,24 +63,6 @@
     transform: translateY(-50%) rotate(360deg);
 }
 
-.search_box .cancel_btn {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 25px;
-    color: #fff;
-    cursor: pointer;
-    transition: all 0.5s 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    transition-delay: .2s;
-}
-
-.search_box .cancel_btn.active {
-    top: 100px;
-    transform: translateY(-50%) rotate(360deg);
-    z-index: 2;
-}
-
 .search_box .submit_btn {
     z-index: 0;
 }
@@ -89,11 +71,15 @@
     z-index: 2;
 }
 
+/* select and close */
+
 .search_box .wrapper {
     position: absolute;
-    display: block;
+    display: flex;
+    padding: 0 20px;
     gap: 2rem;
-    justify-content: flex-start;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     border: 1px solid red;
     top: 50%;
@@ -107,3 +93,23 @@
     top: 100px;
     z-index: 0;
 } 
+
+.wrapper .cancel_btn {
+    /*right: 20px;
+    top: 50%;
+    transform: translateY(-50%);*/
+    font-size: 25px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.5s 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition-delay: .2s;
+}
+
+.wrapper .cancel_btn.active {
+    /*top: 100px;
+    transform: translateY(-50%) rotate(360deg);*/
+}
+
+.wrapper .select {
+    flex: 1;
+}

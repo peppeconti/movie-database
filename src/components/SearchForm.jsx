@@ -5,9 +5,9 @@ import Select from "./Select";
 import { useFormik } from "formik";
 
 const options = [
-    {value: 'movies', label: 'Movies'},
-    {value: 'series', label: 'Series'},
-    {value: 'ciccio', label: 'Ciccio'}
+    { value: 'movies', label: 'Movies' },
+    { value: 'series', label: 'Series' },
+    { value: 'ciccio', label: 'Ciccio' }
 ];
 
 const SearchForm = () => {
@@ -57,12 +57,12 @@ const SearchForm = () => {
             <button className={`${classes.search_btn} ${classes.submit_btn} ${active}`} type="submit">
                 <FontAwesomeIcon icon="search" />
             </button>
-            <div className={`${classes.cancel_btn} ${active}`} type="button" onClick={closeInput}>
-                <FontAwesomeIcon icon="times" />
-            </div>
             <div className={`${classes.wrapper} ${active}`}>
-                <Select options={options} />
-                <Select />
+                <Select options={options} className={classes.select} />
+                <Select className={classes.select} />
+                <div className={`${classes.cancel_btn} ${active}`} type="button" onClick={closeInput}>
+                    <FontAwesomeIcon icon="times" />
+                </div>
             </div>
         </form>
     )
