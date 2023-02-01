@@ -47,7 +47,7 @@
     border: none;
 }
 
-.search_box .search-btn.active {
+.search_box .search_btn.active {
     right: 5px;
     height: 50px;
     display: flex;
