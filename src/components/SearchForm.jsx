@@ -1,32 +1,32 @@
-import React, { useState } from "react";
+import React from "react";
 import classes from './SearchForm.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Select from "./Select";
+//cimport Select from "./Select";
 import { motion as m } from "framer-motion";
 import { useFormik } from "formik";
 
-const options = [
+/*const options = [
     { value: 'movies', label: 'Movies' },
     { value: 'series', label: 'Series' },
     { value: 'ciccio', label: 'Ciccio' }
-];
+];*/
 
 const SearchForm = () => {
 
-    const [active, setActive] = useState('');
+    //const [active, setActive] = useState('');
 
-    const expandeInput = () => {
+    /*const expandeInput = () => {
         setActive(classes.active);
     }
     const closeInput = () => {
         setActive('');
-    }
+    }*/
 
     const validate = values => {
         const errors = {};
 
         if (!values.search) {
-            errors.search = 'search baar is empty'
+            errors.search = 'search bar is empty'
         };
         console.log(errors.search);
         return errors;
@@ -42,8 +42,75 @@ const SearchForm = () => {
         },
     });
 
+    const init = {
+        height: 60,
+        width: 60,
+        color: '#232323',
+        backgroundColor: '#FCFCFC',
+        fontSize: '1.5rem',
+        rotate: 0,
+        translateY: '-50%'
+
+    }
+
+    const anim = {
+        right: 5,
+        height: 50,
+        width: 50,
+        color: '#FCFCFC',
+        backgroundColor: '#232323',
+        fontSize: '1.3rem',
+        rotate: 360,
+        translateY: '-50%'
+    }
+
     return (
-        <form className={`${classes.search_box} ${active}`} onSubmit={formik.handleSubmit}>
+        <m.form
+            initial={{ height: 60, width: 60 }}
+            animate={{ width: 600 }}
+            transition={{ delay: 2, type: 'spring', stiffness: 100 }}
+            className={classes.search_box}
+            onSubmit={formik.handleSubmit}>
+            <m.input
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2, type: 'spring', stiffness: 100 }}
+                name='search'
+                id='search'
+                type='text'
+                onChange={formik.handleChange}
+                value={formik.values.search}
+                placeholder='Type and search your favourite movies by title...' />
+            <m.button
+                initial={init}
+                animate={anim}
+                transition={{ delay: 2, type: 'spring', stiffness: 100 }}
+                className={classes.search_btn}
+                type='button'>
+                <FontAwesomeIcon icon="search" />
+            </m.button>
+        </m.form>
+    )
+}
+
+export default SearchForm;
+
+/**
+ *  /*<m.button
+                //animate={{ zIndex: 2 }}
+                className={`${classes.search_btn} ${classes.submit_btn}`} type="submit">
+                <FontAwesomeIcon icon="search" />
+            </m.button>
+ <div className={`${classes.wrapper} ${active}`}>
+                <Select options={options} className={classes.select} />
+                <Select className={classes.select} />
+                <div className={`${classes.cancel_btn} ${active}`} type="button" onClick={closeInput}>
+                    <FontAwesomeIcon icon="times" />
+                </div>
+</div>
+
+
+ <form className={`${classes.search_box} ${active}`} onSubmit={formik.handleSubmit}>
             <input
                 className={active}
                 name='search'
@@ -58,15 +125,5 @@ const SearchForm = () => {
             <button className={`${classes.search_btn} ${classes.submit_btn} ${active}`} type="submit">
                 <FontAwesomeIcon icon="search" />
             </button>
-            <div className={`${classes.wrapper} ${active}`}>
-                <Select options={options} className={classes.select} />
-                <Select className={classes.select} />
-                <div className={`${classes.cancel_btn} ${active}`} type="button" onClick={closeInput}>
-                    <FontAwesomeIcon icon="times" />
-                </div>
-            </div>
         </form>
-    )
-}
-
-export default SearchForm;
+ */
