@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import classes from './SearchForm.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Select from "./Select";
+import { motion as m } from "framer-motion";
 import { useFormik } from "formik";
 
 const options = [
