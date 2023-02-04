@@ -1,8 +1,8 @@
 import React from "react";
 import classes from './SearchForm.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-//cimport Select from "./Select";
-import { motion as m } from "framer-motion";
+//import Select from "./Select";
+import { motion as m, useCycle } from "framer-motion";
 import { useFormik } from "formik";
 
 /*const options = [
@@ -11,16 +11,74 @@ import { useFormik } from "formik";
     { value: 'ciccio', label: 'Ciccio' }
 ];*/
 
+const formVariants = {
+    hidden: {
+        height: 60, width: 60,
+        transition: {
+            duration: .5,
+            ease: [0.68, -0.55, 0.265, 1.55]
+        }
+    },
+    visible: {
+        width: 600,
+        transition: {
+            duration: .5,
+            ease: [0.68, -0.55, 0.265, 1.55],
+        }
+    }
+}
+
+const buttonVariants = {
+    hidden: {
+        height: 60,
+        width: 60,
+        color: '#232323',
+        backgroundColor: '#FCFCFC',
+        fontSize: '1.5rem',
+        rotate: 0,
+        translateY: '-50%',
+        transition: {
+            duration: .5,
+            ease: [0.68, -0.55, 0.265, 1.55],
+        }
+    },
+    visible: {
+        right: 5,
+        height: 50,
+        width: 50,
+        color: '#FCFCFC',
+        backgroundColor: '#232323',
+        fontSize: '1.3rem',
+        rotate: 360,
+        translateY: '-50%',
+        transition: {
+            duration: .5,
+            ease: [0.68, -0.55, 0.265, 1.55],
+        }
+    }
+}
+
+
+const inputVariants = {
+    hidden: {
+        opacity: 0,
+        transition: {
+            duration: .5,
+            ease: [0.68, -0.55, 0.265, 1.55],
+        }
+    },
+    visible: {
+        opacity: 1,
+        transition: {
+            duration: .5,
+            ease: [0.68, -0.55, 0.265, 1.55],
+        }
+    }
+}
+
 const SearchForm = () => {
 
-    //const [active, setActive] = useState('');
-
-    /*const expandeInput = () => {
-        setActive(classes.active);
-    }
-    const closeInput = () => {
-        setActive('');
-    }*/
+    const [animation, cycleAnimation] = useCycle('hidden', 'visible')
 
     const validate = values => {
         const errors = {};
@@ -42,42 +100,16 @@ const SearchForm = () => {
         },
     });
 
-    const init = {
-        height: 60,
-        width: 60,
-        color: '#232323',
-        backgroundColor: '#FCFCFC',
-        fontSize: '1.5rem',
-        rotate: 0,
-        translateY: '-50%'
-
-    }
-
-    const anim = {
-        right: 5,
-        height: 50,
-        width: 50,
-        color: '#FCFCFC',
-        backgroundColor: '#232323',
-        fontSize: '1.3rem',
-        rotate: 360,
-        translateY: '-50%'
-    }
-
-    const transition = { delay: 2, duration: .5, ease: [0.68, -0.55, 0.265, 1.55] }
-
     return (
         <m.form
             className={classes.search_box}
-            initial={{ height: 60, width: 60 }}
-            animate={{ width: 600 }}
-            transition={transition}
+            variants={formVariants}
+            initial='hidden'
+            animate={animation}
             onSubmit={formik.handleSubmit}>
             <m.input
                 className={classes.search_input}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={transition}
+                variants={inputVariants}
                 name='search'
                 id='search'
                 type='text'
@@ -85,11 +117,11 @@ const SearchForm = () => {
                 value={formik.values.search}
                 placeholder='Type and search your favourite movies by title...' />
             <m.button
-                initial={init}
-                animate={anim}
-                transition={transition}
+                variants={buttonVariants}
                 className={classes.search_btn}
-                type='button'>
+                type='button'
+                onClick={() => cycleAnimation()}
+            >
                 <FontAwesomeIcon icon="search" />
             </m.button>
         </m.form>

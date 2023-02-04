@@ -4,6 +4,7 @@ import SearchForm from './components/SearchForm';
 // IMPORT FONTAWESOME
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
+import Loader from './components/Loader';
 
 library.add(faSearch, faTimes);
 
