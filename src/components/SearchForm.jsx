@@ -11,14 +11,16 @@ const options = [
     { value: 'ciccio', label: 'Ciccio' }
 ];
 
+const transition = {
+    duration: .5,
+    ease: [0.68, -0.55, 0.265, 1.55],
+    delay: .5
+};
+
 const formVariants = {
     hidden: {
         height: 60, width: 60,
-        transition: {
-            duration: .5,
-            ease: [0.68, -0.55, 0.265, 1.55],
-            delay: 1
-        }
+        transition: transition
     },
     visible: {
         width: 600,
@@ -39,11 +41,7 @@ const buttonVariants = {
         fontSize: '1.5rem',
         rotate: 0,
         translateY: '-50%',
-        transition: {
-            duration: .5,
-            ease: [0.68, -0.55, 0.265, 1.55],
-            delay: 1
-        }
+        transition: transition
     },
     visible: {
         right: 5,
@@ -65,11 +63,7 @@ const buttonVariants = {
 const inputVariants = {
     hidden: {
         opacity: 0,
-        transition: {
-            duration: .5,
-            ease: [0.68, -0.55, 0.265, 1.55],
-            delay: 1
-        }
+        transition: transition
     },
     visible: {
         opacity: 1,
@@ -84,7 +78,6 @@ const inputVariants = {
 const wrapperVariants = {
     hidden: {
         top: '50%',
-        zIndex: 0,
         transition: {
             duration: .5,
             ease: [0.68, -0.55, 0.265, 1.55],
@@ -92,12 +85,21 @@ const wrapperVariants = {
     },
     visible: {
         top: 100,
-        zIndex: 0,
+        transition: transition
+    }
+}
+
+const cancelVariants = {
+    hidden: {
+        rotate: 0,
         transition: {
             duration: .5,
             ease: [0.68, -0.55, 0.265, 1.55],
-            delay: 1
         }
+    },
+    visible: {
+        rotate: 360,
+        transition: transition
     }
 }
 
@@ -152,11 +154,12 @@ const SearchForm = () => {
             <m.div
                 className={classes.wrapper}
                 variants={wrapperVariants}>
-                <Select options={options} className={classes.select} />
-                <Select className={classes.select} />
-                <div className={classes.cancel_btn} type='button'>
+                <m.div
+                    className={classes.cancel_btn}
+                    variants={cancelVariants}
+                    type='button'>
                     <FontAwesomeIcon icon="times" />
-                </div>
+                </m.div>
             </m.div>
         </m.form>
     )

@@ -29,6 +29,7 @@
     text-align: center;
     cursor: pointer;
     border: none;
+    z-index: 10;
 }
 
 /*SELECT*/
@@ -38,12 +39,20 @@
     display: flex;
     padding: 0 20px;
     gap: 2rem;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     width: 100%;
-    border: 1px solid red;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: -1;
+    z-index: 0;
+}
+
+.cancel_btn {
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 25px;
+    color: #fff;
+    cursor: pointer;
 }
