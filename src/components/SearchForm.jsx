@@ -64,17 +64,20 @@ const SearchForm = () => {
         translateY: '-50%'
     }
 
+    const transition = { delay: 2, duration: .5, ease: [0.68, -0.55, 0.265, 1.55] }
+
     return (
         <m.form
+            className={classes.search_box}
             initial={{ height: 60, width: 60 }}
             animate={{ width: 600 }}
-            transition={{ delay: 2, duration: .5, ease: [0.68, -0.55, 0.265, 1.55] }}
-            className={classes.search_box}
+            transition={transition}
             onSubmit={formik.handleSubmit}>
             <m.input
+                className={classes.search_input}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 2, duration: .5, ease: [0.68, -0.55, 0.265, 1.55] }}
+                transition={transition}
                 name='search'
                 id='search'
                 type='text'
@@ -84,7 +87,7 @@ const SearchForm = () => {
             <m.button
                 initial={init}
                 animate={anim}
-                transition={{ delay: 2, duration: .5, ease: [0.68, -0.55, 0.265, 1.55] }}
+                transition={transition}
                 className={classes.search_btn}
                 type='button'>
                 <FontAwesomeIcon icon="search" />
