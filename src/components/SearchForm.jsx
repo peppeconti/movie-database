@@ -146,8 +146,10 @@ const SearchForm = () => {
             <m.button
                 variants={buttonVariants}
                 className={classes.search_btn}
-                type='button'
-                onClick={() => cycleAnimation()}
+                type={animation === 'hidden' ? 'button' : 'submit'}
+                onClick={() => {
+                    if (animation === 'hidden') cycleAnimation();
+                }}
             >
                 <FontAwesomeIcon icon="search" />
             </m.button>
@@ -157,7 +159,8 @@ const SearchForm = () => {
                 <m.div
                     className={classes.cancel_btn}
                     variants={cancelVariants}
-                    type='button'>
+                    type='button'
+                    onClick={() => cycleAnimation()}>
                     <FontAwesomeIcon icon="times" />
                 </m.div>
             </m.div>
