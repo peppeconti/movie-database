@@ -29,7 +29,7 @@
     text-align: center;
     cursor: pointer;
     border: none;
-    z-index: 10;
+    z-index: 1;
 }
 
 /*SELECT*/
@@ -38,7 +38,7 @@
     position: absolute;
     display: flex;
     padding: 0 20px;
-    gap: 2rem;
+    gap: 20px;
     justify-content: flex-end;
     align-items: center;
     width: 100%;
@@ -55,4 +55,8 @@
     font-size: 25px;
     color: #fff;
     cursor: pointer;
+}
+
+.select {
+    flex: 1;
 }

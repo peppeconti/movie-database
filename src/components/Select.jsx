@@ -1,18 +1,22 @@
 import React from "react";
 import Select from 'react-select';
 
-const CustomSelect = ({ onChange, options, value, className }) => {
+const CustomSelect = ({ onChange, options, value }) => {
 
-    const defaultValue = '';
+    const defaultValue = 'Select funcia';
 
     return (
-        <div className={className}>
-            <Select
-                onChange={onChange}
-                value={value}
-                options={options}
-            />
-        </div>
+        <Select
+            onChange={onChange}
+            value={value}
+            options={options}
+            styles={{
+                control: (baseStyles, state) => ({
+                    ...baseStyles,
+                    borderRadius: '50px'
+                }),
+            }}
+        />
     )
 }
 

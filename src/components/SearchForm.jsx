@@ -17,13 +17,20 @@ const transition = {
     delay: .5
 };
 
+const selectTransition = {
+    duration: .5,
+    ease: [0.68, -0.55, 0.265, 1.55],
+    delay: 1
+};
+
 const formVariants = {
     hidden: {
         height: 60, width: 60,
         transition: transition
     },
     visible: {
-        width: 600,
+        width: '100%',
+        maxWidth: 600,
         transition: {
             duration: .5,
             ease: [0.68, -0.55, 0.265, 1.55],
@@ -103,6 +110,20 @@ const cancelVariants = {
     }
 }
 
+const selectVariants = {
+    hidden: {
+        opacity: 0,
+        transition: {
+            duration: .5,
+            ease: [0.68, -0.55, 0.265, 1.55],
+        }
+    },
+    visible: {
+        opacity: 1,
+        transition: selectTransition
+    }
+}
+
 const SearchForm = () => {
 
     const [animation, cycleAnimation] = useCycle('hidden', 'visible')
@@ -156,6 +177,12 @@ const SearchForm = () => {
             <m.div
                 className={classes.wrapper}
                 variants={wrapperVariants}>
+                <m.div className={classes.select} variants={selectVariants}>
+                    <Select options={options} className={classes.select} />
+                </m.div>
+                <m.div className={classes.select} variants={selectVariants}>
+                    <Select options={options} className={classes.select} />
+                </m.div>
                 <m.div
                     className={classes.cancel_btn}
                     variants={cancelVariants}
