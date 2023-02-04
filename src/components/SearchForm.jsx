@@ -111,9 +111,9 @@ const SearchForm = () => {
         const errors = {};
 
         if (!values.search) {
-            errors.search = 'search bar is empty'
+            errors.search = 'search bar is empty';
+            console.log(errors.search);
         };
-        console.log(errors.search);
         return errors;
     }
 
