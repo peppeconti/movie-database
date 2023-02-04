@@ -64,7 +64,7 @@
 
 /* select and close */
 
-/*.search_box .wrapper {
+.wrapper {
     position: absolute;
     display: flex;
     padding: 0 20px;
@@ -80,7 +80,7 @@
     z-index: -1;
 }
 
-.search_box .wrapper.active {
+/*.search_box .wrapper.active {
     top: 100px;
     z-index: 0;
 } 

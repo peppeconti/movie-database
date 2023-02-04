@@ -1,22 +1,23 @@
 import React from "react";
 import classes from './SearchForm.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-//import Select from "./Select";
+import Select from "./Select";
 import { motion as m, useCycle } from "framer-motion";
 import { useFormik } from "formik";
 
-/*const options = [
+const options = [
     { value: 'movies', label: 'Movies' },
     { value: 'series', label: 'Series' },
     { value: 'ciccio', label: 'Ciccio' }
-];*/
+];
 
 const formVariants = {
     hidden: {
         height: 60, width: 60,
         transition: {
             duration: .5,
-            ease: [0.68, -0.55, 0.265, 1.55]
+            ease: [0.68, -0.55, 0.265, 1.55],
+            delay: 1
         }
     },
     visible: {
@@ -30,6 +31,7 @@ const formVariants = {
 
 const buttonVariants = {
     hidden: {
+        right: 0,
         height: 60,
         width: 60,
         color: '#232323',
@@ -40,6 +42,7 @@ const buttonVariants = {
         transition: {
             duration: .5,
             ease: [0.68, -0.55, 0.265, 1.55],
+            delay: 1
         }
     },
     visible: {
@@ -65,6 +68,7 @@ const inputVariants = {
         transition: {
             duration: .5,
             ease: [0.68, -0.55, 0.265, 1.55],
+            delay: 1
         }
     },
     visible: {
@@ -72,6 +76,27 @@ const inputVariants = {
         transition: {
             duration: .5,
             ease: [0.68, -0.55, 0.265, 1.55],
+        }
+    }
+}
+
+
+const wrapperVariants = {
+    hidden: {
+        top: '50%',
+        zIndex: 0,
+        transition: {
+            duration: .5,
+            ease: [0.68, -0.55, 0.265, 1.55],
+        }
+    },
+    visible: {
+        top: 100,
+        zIndex: 0,
+        transition: {
+            duration: .5,
+            ease: [0.68, -0.55, 0.265, 1.55],
+            delay: 1
         }
     }
 }
@@ -124,6 +149,15 @@ const SearchForm = () => {
             >
                 <FontAwesomeIcon icon="search" />
             </m.button>
+            <m.div
+                className={classes.wrapper}
+                variants={wrapperVariants}>
+                <Select options={options} className={classes.select} />
+                <Select className={classes.select} />
+                <div className={classes.cancel_btn} type='button'>
+                    <FontAwesomeIcon icon="times" />
+                </div>
+            </m.div>
         </m.form>
     )
 }
