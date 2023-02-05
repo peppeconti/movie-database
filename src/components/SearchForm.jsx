@@ -25,7 +25,7 @@ const selectTransition = {
 
 const formVariants = {
     hidden: {
-        width: 60,
+        width: 45,
         transition: transition
     },
     visible: {
@@ -40,8 +40,8 @@ const formVariants = {
 const buttonVariants = {
     hidden: {
         right: 0,
-        height: 'calc(10vw * 1)',
-        width: 'calc(10vw * 1)',
+        height: 60,
+        width: 60,
         color: '#232323',
         backgroundColor: '#FCFCFC',
         fontSize: '1.5rem',
@@ -51,11 +51,11 @@ const buttonVariants = {
     },
     visible: {
         right: 5,
-        maxHeight: '50px',
-        maxWidth: '50px',
+        height: 35,
+        width: 35,
         color: '#FCFCFC',
         backgroundColor: '#232323',
-        fontSize: '1.3rem',
+        fontSize: '1rem',
         rotate: 360,
         translateY: '-50%',
         transition: {
@@ -90,7 +90,7 @@ const wrapperVariants = {
         }
     },
     visible: {
-        top: 100,
+        top: 80,
         transition: transition
     }
 }
@@ -170,8 +170,9 @@ const SearchForm = () => {
                 onClick={() => {
                     if (animation === 'hidden') cycleAnimation();
                 }}
+
             >
-                <FontAwesomeIcon icon="search" />
+                <FontAwesomeIcon icon='search' />
             </m.button>
             <m.div
                 className={classes.wrapper}
