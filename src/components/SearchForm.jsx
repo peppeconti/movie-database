@@ -25,12 +25,11 @@ const selectTransition = {
 
 const formVariants = {
     hidden: {
-        height: 60, width: 60,
+        width: 60,
         transition: transition
     },
     visible: {
         width: '100%',
-        maxWidth: 600,
         transition: {
             duration: .5,
             ease: [0.68, -0.55, 0.265, 1.55],
@@ -41,8 +40,8 @@ const formVariants = {
 const buttonVariants = {
     hidden: {
         right: 0,
-        height: 60,
-        width: 60,
+        height: 'calc(10vw * 1)',
+        width: 'calc(10vw * 1)',
         color: '#232323',
         backgroundColor: '#FCFCFC',
         fontSize: '1.5rem',
@@ -52,8 +51,8 @@ const buttonVariants = {
     },
     visible: {
         right: 5,
-        height: 50,
-        width: 50,
+        maxHeight: '50px',
+        maxWidth: '50px',
         color: '#FCFCFC',
         backgroundColor: '#232323',
         fontSize: '1.3rem',
@@ -182,13 +181,6 @@ const SearchForm = () => {
                 </m.div>
                 <m.div className={classes.select} variants={selectVariants}>
                     <Select options={options} className={classes.select} />
-                </m.div>
-                <m.div
-                    className={classes.cancel_btn}
-                    variants={cancelVariants}
-                    type='button'
-                    onClick={() => cycleAnimation()}>
-                    <FontAwesomeIcon icon="times" />
                 </m.div>
             </m.div>
         </m.form>
