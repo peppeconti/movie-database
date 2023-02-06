@@ -25,7 +25,7 @@ const selectTransition = {
 
 const formVariants = {
     hidden: {
-        width: 45,
+        width: 50,
         transition: transition
     },
     visible: {
@@ -51,8 +51,8 @@ const buttonVariants = {
     },
     visible: {
         right: 5,
-        height: 35,
-        width: 35,
+        height: 40,
+        width: 40,
         color: '#FCFCFC',
         backgroundColor: '#232323',
         fontSize: '1rem',

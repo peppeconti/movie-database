@@ -10,12 +10,18 @@ const CustomSelect = ({ onChange, options, value }) => {
             onChange={onChange}
             value={value}
             options={options}
-            styles={{
-                control: (baseStyles, state) => ({
-                    ...baseStyles,
-                    borderRadius: '50px'
-                }),
-            }}
+            styles={
+                {
+                    control: (baseStyles, state) => ({
+                        ...baseStyles,
+                        borderRadius: '50px',
+                    }),
+                    placeholder: (baseStyles, state) => ({
+                        ...baseStyles,
+                        color: '#1d1d1d'
+                    })
+                }
+            }
         />
     )
 }
