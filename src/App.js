@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import SearchForm from './components/SearchForm';
+import Search from './components/Search';
 // IMPORT FONTAWESOME
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="App">
-      <SearchForm />
+      <Search />
     </div>
   );
 }
