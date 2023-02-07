@@ -16,7 +16,6 @@
     outline: none;
     border: none;
     margin-bottom: 1rem;
-    z-index: 10;
 }
 
 .search_input:focus {
@@ -41,20 +40,16 @@
 /*SELECT*/
 
 .wrapper {
-    position: relative;
     display: flex;
     padding: 0 20px;
     gap: 20px;
     justify-content: flex-end;
     align-items: center;
     width: 100%;
-    z-index: -1;
-    transform: translateY(-50%);
 }
 
 .select {
     flex: 1;
-    z-index: -1;
 }
 
 @media screen and (max-width: 500px) {

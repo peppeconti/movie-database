@@ -11,29 +11,16 @@ const options = [
     { value: 'ciccio', label: 'Ciccio' }
 ];
 
-const transition = {
-    duration: .5,
-    ease: [0.68, -0.55, 0.265, 1.55],
-    delay: .5
-};
-
-const selectTransition = {
-    duration: .5,
-    ease: [0.68, -0.55, 0.265, 1.55],
-    delay: 1
-};
-
 const formVariants = {
     hidden: {
-        zIndex: 10,
         width: 50,
     },
     visible: {
-        zIndex: 10,
         width: '100%',
         transition: {
             duration: .5,
             ease: [0.68, -0.55, 0.265, 1.55],
+            delay: 2
         }
     }
 }
@@ -61,38 +48,21 @@ const buttonVariants = {
         transition: {
             duration: .5,
             ease: [0.68, -0.55, 0.265, 1.55],
+            delay: 2
         }
     }
 }
 
-
 const inputVariants = {
     hidden: {
-        zIndex: 10,
         opacity: 0
     },
     visible: {
-        zIndex: 10,
         opacity: 1,
         transition: {
             duration: .5,
             ease: [0.68, -0.55, 0.265, 1.55],
-        }
-    }
-}
-
-
-const wrapperVariants = {
-    hidden: {
-        zIndex: -10,
-        y: '-50%'
-    },
-    visible: {
-        zIndex: -10,
-        y: 0,
-        transition: {
-            duration: 5,
-            ease: [0.68, -0.55, 0.265, 1.55],
+            delay: 2
         }
     }
 }
@@ -106,6 +76,7 @@ const selectVariants = {
         transition: {
             duration: .5,
             ease: [0.68, -0.55, 0.265, 1.55],
+            delay: 2.5
         }
     }
 }
@@ -155,16 +126,15 @@ const Search = () => {
             >
                 <FontAwesomeIcon icon='search' />
             </m.button>
-            <m.div
-                className={classes.wrapper}
-                variants={wrapperVariants}>
-                <m.div className={classes.select} variants={selectVariants}>
+            <div
+                className={classes.wrapper}>
+                <m.div className={classes.select} variants={selectVariants} initial='hidden' animate='visible'>
                     <Select options={options} className={classes.select} />
                 </m.div>
-                <m.div className={classes.select} variants={selectVariants}>
+                <m.div className={classes.select} variants={selectVariants} initial='hidden' animate='visible'>
                     <Select options={options} className={classes.select} />
                 </m.div>
-            </m.div>
+            </div>
         </m.form>
     )
 }
