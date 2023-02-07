@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import classes from './Query.module.css';
 import Search from "../Search";
 import { useSearchParams } from 'react-router-dom';
@@ -13,24 +13,34 @@ import { useSearchParams } from 'react-router-dom';
 
 const Query = () => {
 
+    const [movies, setMovies] = useState([]);
     const [searchParams] = useSearchParams();
-    const apikey = process.env.REACT_API_KEY || '8bf8cde6';
+    const currentParams = Object.fromEntries([...searchParams]);
+    const apikey = process.env.REACT_APP_API_KEY;
 
     useEffect(() => {
-        let mounted = true;
-        const currentParams = Object.fromEntries([...searchParams]);
-        fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${apikey}`)
-        .then((response) => response.json())
-        .then((data) => console.log(data));
-        //console.log(currentParams);
-      }, [searchParams]);
+        const controller = new AbortController();
+        const signal = controller.signal;
+    
+            fetch(`http://www.omdbapi.com/?apikey=${apikey}&s=${currentParams.s}`, {
+                signal: signal
+            })
+            .then((data) => data.json())
+            .then(data => setMovies(data.Search));
+            
+        //cleanup
+        return () => controller.abort();
+
+    }, [currentParams]);
 
     return (
         <section className={classes.query}>
             <div className={classes.wrapper}>
                 <Search />
             </div>
-            <div className={classes.result}></div>
+            <div className={classes.result}>
+                {movies.map(movie => <figure key={movie.imdbID}><img src={movie.Poster} alt={movie.Title} /></figure>)}
+            </div>
         </section>
     )
 }

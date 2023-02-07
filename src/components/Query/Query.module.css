@@ -1,5 +1,4 @@
 .query {
-    background-color: #2d2d2d;
     padding: .5rem;
 }
 
@@ -8,4 +7,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #2d2d2d;
+}
+
+.result {
+    display: flex;
+    flex-wrap: wrap;
 }
