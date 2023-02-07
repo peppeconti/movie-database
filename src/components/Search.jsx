@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Select from "./Select";
 import { motion as m } from "framer-motion";
 import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
 
 const options = [
     { value: 'movies', label: 'Movies' },
@@ -83,12 +84,14 @@ const selectVariants = {
 
 const Search = () => {
 
+    const navigate = useNavigate();
+
     const validate = values => {
         const errors = {};
 
         if (!values.search) {
             errors.search = 'search bar is empty';
-            console.log(errors.search);
+            //console.log(errors.search);
         };
         return errors;
     }
@@ -99,7 +102,8 @@ const Search = () => {
         },
         validate,
         onSubmit: values => {
-            console.log(values)
+            //console.log(values);
+            navigate(`/query?s=${values.search}`)
         },
     });
 

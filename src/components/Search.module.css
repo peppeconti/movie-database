@@ -60,3 +60,12 @@
     }
     
 }
+
+@media screen and (max-width: 375px) {
+
+    .wrapper {
+        padding: 0!important;
+        gap: .5rem!important;
+    }
+    
+}

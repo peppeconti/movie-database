@@ -1,0 +1,11 @@
+.query {
+    background-color: #2d2d2d;
+    padding: .5rem;
+}
+
+.wrapper {
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
