@@ -13,7 +13,7 @@ import { useSearchParams } from 'react-router-dom';
 
 const Query = () => {
 
-    const [movies, setMovies] = useState([]);
+    const [movies, setMovies] = useState();
     const [searchParams] = useSearchParams();
     const currentParams = Object.fromEntries([...searchParams]);
     const apikey = process.env.REACT_APP_API_KEY;
@@ -25,9 +25,16 @@ const Query = () => {
             fetch(`http://www.omdbapi.com/?apikey=${apikey}&s=${currentParams.s}`, {
                 signal: signal
             })
-            .then((data) => data.json())
-            .then(data => setMovies(data.Search));
-            
+            .then(data => data.json())
+            .then(data => {
+                const res = {number: data.totalResults, results: data.Search.map(e => {
+                    const result = {img: e.Poster, title: e.Title, id: e.imdbID};
+                    return result;
+                })};
+                return res;
+            })
+            .then(data => setMovies(data.results))
+
         //cleanup
         return () => controller.abort();
 
@@ -39,7 +46,8 @@ const Query = () => {
                 <Search />
             </div>
             <div className={classes.result}>
-                {movies.map(movie => <figure key={movie.imdbID}><img src={movie.Poster} alt={movie.Title} /></figure>)}
+                {movies && movies.map(movie => <figure key={movie.id}><img src={movie.img} alt={movie.title} /></figure>)}
+                {!movies && <div>No results!!</div>}
             </div>
         </section>
     )
