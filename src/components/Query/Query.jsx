@@ -1,53 +1,17 @@
 import React, { useEffect, useState } from "react";
 import classes from './Query.module.css';
 import Search from "../Search";
-import { useSearchParams } from 'react-router-dom';
-//import { useLocation } from 'react-router-dom';
-
-/*function useQuery() {
-    //const { search } = useLocation();
-    const [searchParams] = useSearchParams();
-
-    return useMemo(() => new URLSearchParams(search), [search]);
-}*/
+import useFetch from "../../hooks/useFetch";
+import useQuery from "../../hooks/useQuery";
 
 const Query = () => {
 
-    const [movies, setMovies] = useState();
-    const [searchParams] = useSearchParams();
-    const currentParams = Object.fromEntries([...searchParams]);
+    const {currentParams} = useQuery();
     const apikey = process.env.REACT_APP_API_KEY;
+    const API = `http://www.omdbapi.com/?apikey=${apikey}&s=${currentParams.s}`;
 
-    useEffect(() => {
-        const controller = new AbortController();
-        const signal = controller.signal;
-
-        fetch(`http://www.omdbapi.com/?apikey=${apikey}&s=${currentParams.s}`, {
-            signal: signal
-        })
-            .then(data => data.json())
-            .then(data => {
-                const res = {
-                    number: data.totalResults, results: data.Search.map(e => {
-                        const result = { img: e.Poster, title: e.Title, id: e.imdbID };
-                        return result;
-                    })
-                };
-                return res;
-            })
-            .then(data => setMovies(data.results))
-            .catch((err) => {
-                if (err.name === 'AbortError') {
-                    console.log('cancelled!!')
-                } else {
-                    console.log('unknown error')
-                }
-            })
-
-        //cleanup
-        return () => controller.abort();
-
-    }, [currentParams, apikey]);
+    const { data, error, loading } = useFetch(API);
+    
 
     return (
         <section className={classes.query}>
@@ -55,11 +19,23 @@ const Query = () => {
                 <Search />
             </div>
             <div className={classes.result}>
-                {movies && movies.map(movie => <figure key={movie.id}><img src={movie.img} alt={movie.title} /></figure>)}
-                {!movies && <div>No results!!</div>}
+                {data && <div>You found {data.totalResults} items!</div>}
+                {error && <div>{error}</div>}
             </div>
         </section>
     )
 }
 
 export default Query;
+
+
+
+/**
+ * //import { useLocation } from 'react-router-dom';
+
+/*function useQuery() {
+    //const { search } = useLocation();
+    const [searchParams] = useSearchParams();
+
+    return useMemo(() => new URLSearchParams(search), [search]);
+}*/
