@@ -21,24 +21,33 @@ const Query = () => {
     useEffect(() => {
         const controller = new AbortController();
         const signal = controller.signal;
-    
-            fetch(`http://www.omdbapi.com/?apikey=${apikey}&s=${currentParams.s}`, {
-                signal: signal
-            })
+
+        fetch(`http://www.omdbapi.com/?apikey=${apikey}&s=${currentParams.s}`, {
+            signal: signal
+        })
             .then(data => data.json())
             .then(data => {
-                const res = {number: data.totalResults, results: data.Search.map(e => {
-                    const result = {img: e.Poster, title: e.Title, id: e.imdbID};
-                    return result;
-                })};
+                const res = {
+                    number: data.totalResults, results: data.Search.map(e => {
+                        const result = { img: e.Poster, title: e.Title, id: e.imdbID };
+                        return result;
+                    })
+                };
                 return res;
             })
             .then(data => setMovies(data.results))
+            .catch((err) => {
+                if (err.name === 'AbortError') {
+                    console.log('cancelled!!')
+                } else {
+                    console.log('unknown error')
+                }
+            })
 
         //cleanup
         return () => controller.abort();
 
-    }, [currentParams]);
+    }, [currentParams, apikey]);
 
     return (
         <section className={classes.query}>
