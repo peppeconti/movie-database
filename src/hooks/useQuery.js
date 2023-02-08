@@ -4,7 +4,13 @@ const useQuery = () => {
 
     const [searchParams] = useSearchParams();
     const currentParams = Object.fromEntries([...searchParams]);
-    return { currentParams };
+    let queryParams = [];
+    for (const [key, value] of Object.entries(currentParams)) {
+        queryParams.push(`${key}=${value}`);
+    };
+    const queryString = queryParams.join('&');
+
+    return { queryString };
 }
 
 export default useQuery;
