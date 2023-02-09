@@ -37,7 +37,7 @@ const Query = () => {
             <div className={classes.wrapper}>
                 <Search />
             </div>
-            <div>
+            <div className={loading ? classes.loading : classes.loaded}>
                 {content.current}
             </div>
         </section>

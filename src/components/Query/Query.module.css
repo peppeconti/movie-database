@@ -1,3 +1,16 @@
+.loading {
+    opacity: .4;
+}
+
+.loading, .loaded {
+    padding: 2rem;
+}
+
+.loaded p, .loading p {
+    margin-bottom: 2rem;
+    border: 1px solid red;
+}
+
 .wrapper {
     height: 30vh;
     display: flex;
@@ -7,7 +20,15 @@
 }
 
 .result {
+    border: 1px solid red;
     display: flex;
     flex-wrap: wrap;
-    padding: .5rem;
+    justify-content: space-between;
+}
+
+.result figure {
+    height: 300px;
+    width: 225px;
+    border: 1px solid red;
+    overflow: hidden;
 }
