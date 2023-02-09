@@ -38,7 +38,8 @@ const Query = () => {
                 <Search />
             </div>
             <div>
-                {content}
+                {loading && <div>Loading...</div>}
+                {data && content}
             </div>
         </section>
     )
