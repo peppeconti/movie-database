@@ -27,7 +27,7 @@ p.pagination {
     border: 1px solid red;
     grid-gap: 1rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(200px, 1fr));
+    grid-template-columns: repeat(5, minmax(200px, 20vw));
     margin-bottom: 2rem;
 }
 
