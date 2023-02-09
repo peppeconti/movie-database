@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import classes from './Query.module.css';
 import Search from "../Search";
 import useFetch from "../../hooks/useFetch";
@@ -8,17 +9,16 @@ const Query = () => {
     const { queryString } = useQuery();
     const apikey = process.env.REACT_APP_API_KEY;
     const API = `http://www.omdbapi.com/?apikey=${apikey}&${queryString}`;
-
     const { data, error, loading } = useFetch(API);
 
     let movies;
     let totalMovies;
-    let content;
+    const content = useRef(<div>nullo</div>);
 
     if (data && data.Response === 'True') {
-        movies = data.Search.map(e => new Object({ id: e.imdbID, title: e.Title, img: e.Poster }));
+        movies= data.Search.map(e => new Object({ id: e.imdbID, title: e.Title, img: e.Poster }));
         totalMovies = data.totalResults;
-        content = <>
+        content.current = <>
             <p>You found {totalMovies} items</p>
             <div className={classes.result}>
                 {movies.map(movie => <figure key={movie.id}><img src={movie.img} alt={movie.title} /></figure>)}
@@ -27,7 +27,7 @@ const Query = () => {
     }
 
     if (data && data.Response === 'False') {
-        content = <div>No results...sorry</div>
+        content.current = <div>No results...sorry</div>
     }
 
     console.log(movies);
@@ -38,8 +38,7 @@ const Query = () => {
                 <Search />
             </div>
             <div>
-                {loading && <div>Loading...</div>}
-                {data && content}
+                {content.current}
             </div>
         </section>
     )
