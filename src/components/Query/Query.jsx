@@ -1,14 +1,16 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import classes from './Query.module.css';
 import Search from "../Search";
+import Pagination from './Pagination';
 import useFetch from "../../hooks/useFetch";
 import useQuery from "../../hooks/useQuery";
 
 const Query = () => {
 
-    const { queryString } = useQuery();
+    const [page, setPage] = useState(1);
+    const queryString = useQuery();
     const apikey = process.env.REACT_APP_API_KEY;
-    const API = `http://www.omdbapi.com/?apikey=${apikey}&${queryString}`;
+    const API = `http://www.omdbapi.com/?apikey=${apikey}&${queryString}&page=${page}`;
     const { data, error, loading } = useFetch(API);
 
     let movies;
@@ -19,10 +21,11 @@ const Query = () => {
         movies= data.Search.map(e => new Object({ id: e.imdbID, title: e.Title, img: e.Poster }));
         totalMovies = data.totalResults;
         content.current = <>
-            <p>You found {totalMovies} items</p>
+            <p className={classes.number}>You found {totalMovies} items</p>
             <div className={classes.result}>
                 {movies.map(movie => <figure key={movie.id}><img src={movie.img} alt={movie.title} /></figure>)}
             </div>
+            <Pagination totalCount={totalMovies} currentPage={page} setPage={setPage}/>
         </>
     }
 
@@ -40,6 +43,7 @@ const Query = () => {
             <div className={loading ? classes.loading : classes.loaded}>
                 {content.current}
             </div>
+            <footer></footer>
         </section>
     )
 }

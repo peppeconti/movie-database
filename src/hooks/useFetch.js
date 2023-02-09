@@ -29,7 +29,7 @@ function useFetch(url) {
             })
 
         return () => {
-            console.log('aho');
+            //console.log('aho');
             controller.abort();
         }
     }, [url])

@@ -6,8 +6,12 @@
     padding: 2rem;
 }
 
-.loaded p, .loading p {
+p.number {
     margin-bottom: 2rem;
+    border: 1px solid red;
+}
+
+p.pagination {
     border: 1px solid red;
 }
 
@@ -21,14 +25,25 @@
 
 .result {
     border: 1px solid red;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    grid-gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(200px, 1fr));
+    margin-bottom: 2rem;
 }
 
 .result figure {
     height: 300px;
-    width: 225px;
+    width: auto;
     border: 1px solid red;
     overflow: hidden;
+}
+
+.result figure img {
+    object-position: center;
+    object-fit: cover;
+}
+
+footer {
+    background-color: #2d2d2d;
+    height: 200px;
 }
