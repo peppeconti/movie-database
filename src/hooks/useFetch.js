@@ -18,8 +18,10 @@ function useFetch(url) {
         })
             .then(res => res.json())
             .then(res => {
-                setLoading(false);
-                setData(res);
+                setTimeout(() => {
+                    setLoading(false);
+                    setData(res);
+                }, 3000)
             })
             .catch(err => {
                 setLoading(false);
