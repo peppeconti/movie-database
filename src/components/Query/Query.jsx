@@ -38,7 +38,7 @@ const Query = () => {
     return (
         <section className={classes.query}>
             <div className={classes.wrapper}>
-                <Search />
+                <Search setPage={setPage} />
             </div>
             <div className={loading ? classes.loading : classes.loaded}>
                 {content.current}

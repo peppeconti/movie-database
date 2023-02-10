@@ -83,7 +83,7 @@ const selectVariants = {
     }
 }
 
-const Search = () => {
+const Search = ({setPage}) => {
 
     const navigate = useNavigate();
 
@@ -105,6 +105,7 @@ const Search = () => {
         validate,
         onSubmit: values => {
             //console.log(values);
+            setPage(1);
             navigate(`/query?s=${values.search}&type=${values.type}`)
         },
     });
