@@ -3,12 +3,14 @@ import Select from 'react-select';
 
 const CustomSelect = ({ onChange, options, value }) => {
 
-    const defaultValue = '';
+    const defaultValue = (options, value) => {
+        return options ? options.find(option => option.value===value) : '';
+    };
 
     return (
         <Select
-            onChange={onChange}
-            value={value}
+            onChange={value => onChange(value)}
+            value={defaultValue(options,value)}
             options={options}
             styles={
                 {

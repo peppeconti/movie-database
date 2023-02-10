@@ -7,9 +7,10 @@ import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 
 const options = [
-    { value: 'movies', label: 'Movies' },
+    { value: '', label: 'All types' },
+    { value: 'movie', label: 'Movie' },
     { value: 'series', label: 'Series' },
-    { value: 'ciccio', label: 'Ciccio' }
+    { value: 'episode', label: 'Episode' }
 ];
 
 const formVariants = {
@@ -98,14 +99,22 @@ const Search = () => {
 
     const formik = useFormik({
         initialValues: {
-            search: ''
+            search: '',
+            type: ''
         },
         validate,
         onSubmit: values => {
             //console.log(values);
-            navigate(`/query?s=${values.search}`)
+            navigate(`/query?s=${values.search}&type=${values.type}`)
         },
     });
+
+    const filterResults = (value) => {
+            formik.setFieldValue('type', value.value);
+            if (formik.values.search) {
+                formik.handleSubmit();
+            }
+    }
 
     return (
         <m.form
@@ -133,10 +142,12 @@ const Search = () => {
             <div
                 className={classes.wrapper}>
                 <m.div className={classes.select} variants={selectVariants} initial='hidden' animate='visible'>
-                    <Select options={options} className={classes.select} />
-                </m.div>
-                <m.div className={classes.select} variants={selectVariants} initial='hidden' animate='visible'>
-                    <Select options={options} className={classes.select} />
+                    <Select
+                        options={options}
+                        value={formik.values.type}
+                        onChange={filterResults}
+                        className={classes.select}
+                    />
                 </m.div>
             </div>
         </m.form>
