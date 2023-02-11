@@ -105,7 +105,7 @@ const Search = ({setPage}) => {
         validate,
         onSubmit: values => {
             //console.log(values);
-            setPage(1);
+            if (setPage) setPage(1);
             navigate(`/query?s=${values.search}&type=${values.type}`)
         },
     });

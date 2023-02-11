@@ -29,7 +29,7 @@ const Pagination = ({ totalCount, currentPage, setPage }) => {
             {pagination.map((pageNumber, i) => <li
                 key={i}
                 className={pag_items(pageNumber)}
-                onClick={() => setPage(pageNumber)}
+                onClick={pageNumber != '...' ? () => setPage(pageNumber) : () => console.log('ciuccia')}
             >
                 {pageNumber}
             </li>)}
