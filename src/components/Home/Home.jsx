@@ -6,7 +6,7 @@ const Home = () => {
 
     return (
         <section className={classes.home}>
-            <Search setPage={false}/>
+            <Search />
         </section>
     )
 }
