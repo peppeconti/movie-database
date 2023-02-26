@@ -12,16 +12,26 @@ const options = [
     { value: 'episode', label: 'Episode' }
 ];
 
-const options2 = [
-    { value: '', label: 'All persons' },
-    { value: 'pino', label: 'Pino' },
-    { value: 'gianni', label: 'Gianni' },
-    { value: 'piero', label: 'Piero' }
-];
+const years = () => {
+    let max = new Date().getFullYear();
+    let range = max - 1895;
+    let min = max - range;
+    let years = [];
+
+    for (let i = max; i >= min; i--) {
+        years.push(i);
+    }
+    return years;
+}
+
+const years_options = [{ value: '', label: 'All year' }, years().map(e => {
+    return { value: e, label: e }
+})].flat();
+
 
 const Search = () => {
 
-    //const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const validate = values => {
         const errors = {};
@@ -37,13 +47,13 @@ const Search = () => {
         initialValues: {
             search: '',
             type: '',
-            persons: ''
+            year: ''
         },
         validate,
         onSubmit: values => {
             console.log(values);
             //if (setPage) setPage(1);
-            //navigate(`/query?s=${values.search}&type=${values.type}`)
+            navigate(`/query?s=${values.search}&type=${values.type}&year=${values.year}`)
         },
     });
 
@@ -82,9 +92,9 @@ const Search = () => {
                 </div>
                 <div className={classes.select}>
                     <Select
-                        options={options2}
-                        value={formik.values.persons}
-                        onChange={(value) => formik.setFieldValue('persons', value.value)}
+                        options={years_options}
+                        value={formik.values.year}
+                        onChange={(value) => formik.setFieldValue('year', value.value)}
                         className={classes.select}
                     />
                 </div>
