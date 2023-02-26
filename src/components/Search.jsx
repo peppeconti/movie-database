@@ -12,6 +12,13 @@ const options = [
     { value: 'episode', label: 'Episode' }
 ];
 
+const options2 = [
+    { value: '', label: 'All persons' },
+    { value: 'pino', label: 'Pino' },
+    { value: 'gianni', label: 'Gianni' },
+    { value: 'piero', label: 'Piero' }
+];
+
 const Search = () => {
 
     //const navigate = useNavigate();
@@ -29,7 +36,8 @@ const Search = () => {
     const formik = useFormik({
         initialValues: {
             search: '',
-            type: ''
+            type: '',
+            persons: ''
         },
         validate,
         onSubmit: values => {
@@ -39,12 +47,12 @@ const Search = () => {
         },
     });
 
-    const filterResults = (value) => {
-        formik.setFieldValue('type', value.value);
-        if (formik.values.search) {
+    /*const filterResults = (type) => {
+        formik.setFieldValue(type, value.value);
+        /*if (formik.values.search) {
             formik.handleSubmit();
         }
-    }
+    }*/
 
     return (
         <form className={classes.search_box} onSubmit={formik.handleSubmit}>
@@ -68,15 +76,15 @@ const Search = () => {
                     <Select
                         options={options}
                         value={formik.values.type}
-                        onChange={filterResults}
+                        onChange={(value) => formik.setFieldValue('type', value.value)}
                         className={classes.select}
                     />
                 </div>
                 <div className={classes.select}>
                     <Select
-                        options={options}
-                        value={formik.values.type}
-                        onChange={filterResults}
+                        options={options2}
+                        value={formik.values.persons}
+                        onChange={(value) => formik.setFieldValue('persons', value.value)}
                         className={classes.select}
                     />
                 </div>
