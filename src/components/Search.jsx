@@ -63,7 +63,7 @@ const Search = () => {
                     </button>
                 </div>
             </div>
-            {/*<div className={classes.wrapper}>
+            {<div className={classes.select_wrapper}>
                 <div className={classes.select}>
                     <Select
                         options={options}
@@ -80,7 +80,7 @@ const Search = () => {
                         className={classes.select}
                     />
                 </div>
-    </div>*/}
+            </div>}
         </form>
     )
 }
