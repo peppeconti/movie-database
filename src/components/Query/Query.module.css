@@ -16,7 +16,8 @@ p.pagination {
 }
 
 .wrapper {
-    height: 30vh;
+    height: auto;
+    padding: 4rem 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
