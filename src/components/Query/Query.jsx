@@ -7,10 +7,14 @@ import useQuery from "../../hooks/useQuery";
 
 const Query = () => {
 
+    // HOOKS
     const [page, setPage] = useState(1);
-    const queryString = useQuery();
+    const { queryString } = useQuery();
+
+    const queryStr = queryString();
     const apikey = process.env.REACT_APP_API_KEY;
-    const API = `http://www.omdbapi.com/?apikey=${apikey}&${queryString}&page=${page}`;
+    const API = `http://www.omdbapi.com/?apikey=${apikey}&${queryStr}&page=${page}`;
+
     const { data, error, loading } = useFetch(API);
 
     let movies;
@@ -18,7 +22,9 @@ const Query = () => {
     const content = useRef(<div>nullo</div>);
 
     if (data && data.Response === 'True') {
-        movies= data.Search.map(e => new Object({ id: e.imdbID, title: e.Title, img: e.Poster }));
+        movies= data.Search.map(e => {
+            return { id: e.imdbID, title: e.Title, img: e.Poster }
+        });
         totalMovies = data.totalResults;
         content.current = <>
             <p className={classes.number}>You found {totalMovies} items</p>

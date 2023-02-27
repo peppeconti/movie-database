@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 const useQuery = () => {
@@ -6,18 +6,16 @@ const useQuery = () => {
     const [searchParams] = useSearchParams();
     const currentParams = Object.fromEntries([...searchParams]);
 
-    console.log(currentParams);
-
-    const queryString = useMemo(() => {
+    const queryString = useCallback((obj) => {
         let queryParams = [];
-        for (const [key, value] of Object.entries(currentParams)) {
-            queryParams.push(`${key}=${value}`);
+        for (const [key, value] of Object.entries(obj || currentParams)) {
+            if (value !== '') queryParams.push(`${key}=${value}`);
         };
         return queryParams.join('&');
 
     }, [currentParams]);
 
-    return queryString;
+    return { queryString, currentParams };
 }
 
 export default useQuery;

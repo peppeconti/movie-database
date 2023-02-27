@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from './Search.module.css';
 import Select from "./Select";
 import { useFormik } from "formik";
 import { BiSearch } from 'react-icons/bi';
 import { useNavigate } from "react-router-dom";
+import useQuery from "../hooks/useQuery";
 
 const options = [
     { value: '', label: 'All types' },
@@ -25,7 +26,7 @@ const years = () => {
 }
 
 const years_options = [{ value: '', label: 'All year' }, years().map(e => {
-    return { value: e, label: e }
+    return { value: e.toString(), label: e.toString() }
 })].flat();
 
 
@@ -33,27 +34,34 @@ const Search = () => {
 
     const navigate = useNavigate();
 
+    const { queryString, currentParams } = useQuery();
+
     const validate = values => {
         const errors = {};
 
-        if (!values.search) {
-            errors.search = 'search bar is empty';
+        if (!values.s) {
+            errors.s = 'search bar is empty';
             //console.log(errors.search);
         };
         return errors;
     }
 
+    useEffect(() => {
+        console.log(currentParams);
+    }, [])
+
     const formik = useFormik({
         initialValues: {
-            search: '',
-            type: '',
-            year: ''
+            s: currentParams.s || '',
+            type: currentParams.type || '',
+            y: currentParams.y || ''
         },
         validate,
         onSubmit: values => {
             console.log(values);
+            const queryStr = queryString(values);
             //if (setPage) setPage(1);
-            navigate(`/query?s=${values.search}&type=${values.type}&year=${values.year}`)
+            navigate(`/query?${queryStr}`)
         },
     });
 
@@ -69,11 +77,11 @@ const Search = () => {
             <div className={classes.input_wrapper}>
                 <input
                     className={classes.search_input}
-                    name='search'
-                    id='search'
+                    name='s'
+                    id='s'
                     type='text'
                     onChange={formik.handleChange}
-                    value={formik.values.search}
+                    value={formik.values.s}
                     placeholder='Type and search your favourite movies...' />
                 <div className={classes.btn_wrapper}>
                     <button className={classes.search_btn} type='submit'>
@@ -93,8 +101,8 @@ const Search = () => {
                 <div className={classes.select}>
                     <Select
                         options={years_options}
-                        value={formik.values.year}
-                        onChange={(value) => formik.setFieldValue('year', value.value)}
+                        value={formik.values.y}
+                        onChange={(value) => formik.setFieldValue('y', value.value)}
                         className={classes.select}
                     />
                 </div>
