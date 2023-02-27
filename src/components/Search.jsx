@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import classes from './Search.module.css';
 import Select from "./Select";
 import { useFormik } from "formik";
@@ -46,9 +46,9 @@ const Search = () => {
         return errors;
     }
 
-    useEffect(() => {
+    /*useEffect(() => {
         console.log(currentParams);
-    }, [])
+    }, [currentParams])*/
 
     const formik = useFormik({
         initialValues: {
