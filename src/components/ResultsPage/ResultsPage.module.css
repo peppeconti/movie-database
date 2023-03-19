@@ -1,0 +1,12 @@
+.search__wrapper {
+    height: auto;
+    padding: 4rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2d2d2d;
+}
+
+.results__wrapper {
+    padding: 2rem;
+}

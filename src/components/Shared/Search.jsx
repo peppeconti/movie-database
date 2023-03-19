@@ -4,7 +4,7 @@ import Select from "./Select";
 import { useFormik } from "formik";
 import { BiSearch } from 'react-icons/bi';
 import { useNavigate } from "react-router-dom";
-import useQuery from "../hooks/useQuery";
+import useQuery from "../../hooks/useQuery";
 
 const options = [
     { value: '', label: 'All types' },

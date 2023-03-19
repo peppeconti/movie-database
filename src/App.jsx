@@ -1,5 +1,5 @@
 import Home from './components/Home/Home';
-import Query from './components/Query/Query';
+import ResultsPage from './components/ResultsPage/ResultsPage';
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/query' element={<Query />} />
+        <Route path='/query' element={<ResultsPage />} />
       </Routes>
     </>
   );

@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import classes from './Query.module.css';
-import Search from "../Search";
+import Search from "../Shared/Search";
 import Pagination from './Pagination';
 import useFetch from "../../hooks/useFetch";
 import useQuery from "../../hooks/useQuery";

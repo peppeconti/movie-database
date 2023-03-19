@@ -1,6 +1,6 @@
 import React from "react";
 import classes from './Home.module.css';
-import Search from "../Search";
+import Search from "../Shared/Search";
 
 const Home = () => {
 
