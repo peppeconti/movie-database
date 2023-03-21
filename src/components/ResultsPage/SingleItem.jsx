@@ -1,7 +1,11 @@
 import classes from './SingleItem.module.css';
 import not_found from '../../assets/img-not-found.jpg';
 
-const SingleItem = ({ id, title, img, number, year, type }) => {
+const SingleItem = ({ id, title, img, number, year, type, setModal }) => {
+
+    const openModal = () => {
+        setModal(true);
+    }
 
     return (
         <li className={classes.item}>
@@ -12,10 +16,9 @@ const SingleItem = ({ id, title, img, number, year, type }) => {
                 <img src={img !== 'N/A' ? img : not_found}/>
             </figure>
             <div className={classes.title}>
-                <p>{title}</p>
+                <p>{title} ({type})</p>
                 <p>{year}</p>
-                <p>{type}</p>
-
+                <button onClick={openModal}>VIEW</button>
             </div>
         </li>
     )

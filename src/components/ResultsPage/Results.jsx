@@ -1,10 +1,14 @@
+import { useState } from 'react';
 import classes from './Results.module.css';
 import useFetch from "../../hooks/useFetch";
 import useQuery from "../../hooks/useQuery";
 import Pagination from './Pagination';
+import Modal from './Modal';
 import SingleItem from './SingleItem';
 
 const Results = ({ page, setPage }) => {
+
+    const [modal, setModal] = useState(false);
 
     const { queryString } = useQuery();
 
@@ -42,6 +46,7 @@ const Results = ({ page, setPage }) => {
                     img={movie.img}
                     year={movie.year}
                     type={movie.type}
+                    setModal={setModal}
                     number={index + (10 * page) - 9}
                 />
             )}
@@ -63,6 +68,7 @@ const Results = ({ page, setPage }) => {
                 {pagination}
             </>}
             {loading && <p>loading...</p>}
+            {modal && <Modal setModal={setModal} />}
         </div>
     )
 }
