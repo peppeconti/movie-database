@@ -1,9 +1,10 @@
 import classes from './SingleItem.module.css';
 import not_found from '../../assets/img-not-found.jpg';
 
-const SingleItem = ({ id, title, img, number, year, type, setModal }) => {
+const SingleItem = ({ id, title, img, number, year, type, setModal, setModalData }) => {
 
     const openModal = () => {
+        setModalData(id);
         setModal(true);
     }
 
@@ -13,7 +14,7 @@ const SingleItem = ({ id, title, img, number, year, type, setModal }) => {
                 {number}
             </div>
             <figure>
-                <img src={img !== 'N/A' ? img : not_found}/>
+                <img src={img !== 'N/A' ? img : not_found} alt={title}/>
             </figure>
             <div className={classes.title}>
                 <p>{title} ({type})</p>

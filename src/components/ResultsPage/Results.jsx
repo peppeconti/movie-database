@@ -9,6 +9,7 @@ import SingleItem from './SingleItem';
 const Results = ({ page, setPage }) => {
 
     const [modal, setModal] = useState(false);
+    const [modalData, setModalData] = useState(null);
 
     const { queryString } = useQuery();
 
@@ -18,7 +19,7 @@ const Results = ({ page, setPage }) => {
 
     const { data, error, loading } = useFetch(API);
 
-    console.log(data)
+    //console.log(data)
 
     // DATA
     let movies;
@@ -47,6 +48,7 @@ const Results = ({ page, setPage }) => {
                     year={movie.year}
                     type={movie.type}
                     setModal={setModal}
+                    setModalData={setModalData}
                     number={index + (10 * page) - 9}
                 />
             )}
@@ -68,7 +70,7 @@ const Results = ({ page, setPage }) => {
                 {pagination}
             </>}
             {loading && <p>loading...</p>}
-            {modal && <Modal setModal={setModal} />}
+            {modal && <Modal setModal={setModal} modalData={modalData} />}
         </div>
     )
 }
