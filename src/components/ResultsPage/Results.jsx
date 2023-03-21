@@ -2,6 +2,7 @@ import classes from './Results.module.css';
 import useFetch from "../../hooks/useFetch";
 import useQuery from "../../hooks/useQuery";
 import Pagination from './Pagination';
+import SingleItem from './SingleItem';
 
 const Results = ({ page, setPage }) => {
 
@@ -13,33 +14,50 @@ const Results = ({ page, setPage }) => {
 
     const { data, error, loading } = useFetch(API);
 
+    // DATA
     let movies;
     let totalMovies;
-    let content;
+
+    // ELEMENTS
+    let totalFound;
+    let movieList;
+    let pagination;
 
     if (data && data.Response === 'True') {
+        // SET DATA RESULTS
         movies = data.Search.map(e => {
             return { id: e.imdbID, title: e.Title, img: e.Poster }
         });
         totalMovies = data.totalResults;
-        content = <>
-            <div className={classes.result}>
-                {movies.map(movie => <figure key={movie.id}><img src={movie.img} alt={movie.title} /></figure>)}
-            </div>
-            <Pagination totalCount={totalMovies} currentPage={page} setPage={setPage} />
-        </>
+        // SET ELEMENTS
+        totalFound = <p className={classes.total}>You found {totalMovies} items</p>
+        movieList = <ul className={classes.movie_list}>
+            {movies.map(movie =>
+                <SingleItem
+                    key={movie.id}
+                    id={movie.id}
+                    title={movie.title}
+                    img={movie.img}
+                />
+            )}
+        </ul>
+        pagination = <Pagination totalCount={totalMovies} currentPage={page} setPage={setPage} />
     }
 
     if (data && data.Response === 'False') {
-        content = <div>No results...sorry</div>
+        totalFound = <p className={classes.total}>You found no items</p>
     }
 
-    console.log(data);
+    //console.log(data);
 
     return (
         <div className={classes.results}>
-            <p className={classes.total}>You found {totalMovies} items</p>
-            {content}
+            {!loading && <>
+                {totalFound}
+                {movieList}
+                {pagination}
+            </>}
+            {loading && <p>loading...</p>}
         </div>
     )
 }

@@ -1,0 +1,18 @@
+.item {
+    list-style: none;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    border: 1px solid yellow;
+}
+
+.item figure {
+    width: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.item figure img {
+    width: 100%;
+}
