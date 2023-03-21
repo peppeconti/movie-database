@@ -30,7 +30,7 @@ const years_options = [{ value: '', label: 'All year' }, years().map(e => {
 })].flat();
 
 
-const Search = () => {
+const Search = ({ setPage }) => {
 
     const navigate = useNavigate();
 
@@ -60,7 +60,7 @@ const Search = () => {
         onSubmit: values => {
             console.log(values);
             const queryStr = queryString(values);
-            //if (setPage) setPage(1);
+            if (setPage) setPage(1);
             navigate(`/query?${queryStr}`)
         },
     });

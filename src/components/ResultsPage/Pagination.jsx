@@ -6,7 +6,7 @@ const Pagination = ({ totalCount, currentPage, setPage }) => {
 
     const pagination = usePagination(totalCount, currentPage);
 
-    console.log(pagination);
+    //console.log(pagination);
 
     const pag_items = (pageNumber) => {
         return (pageNumber === currentPage) ? [classes.pagination_item, classes.selected].join(' ') : classes.pagination_item;

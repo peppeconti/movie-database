@@ -14,6 +14,8 @@ const Results = ({ page, setPage }) => {
 
     const { data, error, loading } = useFetch(API);
 
+    console.log(data)
+
     // DATA
     let movies;
     let totalMovies;
@@ -26,18 +28,21 @@ const Results = ({ page, setPage }) => {
     if (data && data.Response === 'True') {
         // SET DATA RESULTS
         movies = data.Search.map(e => {
-            return { id: e.imdbID, title: e.Title, img: e.Poster }
+            return { id: e.imdbID, title: e.Title, img: e.Poster, year: e.Year, type: e.Type }
         });
         totalMovies = data.totalResults;
         // SET ELEMENTS
         totalFound = <p className={classes.total}>You found {totalMovies} items</p>
         movieList = <ul className={classes.movie_list}>
-            {movies.map(movie =>
+            {movies.map((movie, index) =>
                 <SingleItem
                     key={movie.id}
                     id={movie.id}
                     title={movie.title}
                     img={movie.img}
+                    year={movie.year}
+                    type={movie.type}
+                    number={index + (10 * page) - 9}
                 />
             )}
         </ul>
