@@ -15,7 +15,7 @@ const MovieInfo = ({ data, loading }) => {
 
     return (
         <div className={classes.message}>
-            {(loading || !data) && <p>ciccio Load</p>}
+            {loading && <p>ciccio Load</p>}
             {(!loading && data) && <p>{data.Plot}</p>}
         </div>
     );
@@ -26,9 +26,7 @@ const portalElement = document.getElementById('overlay');
 const Modal = ({ setModal, modalData }) => {
 
     const apikey = process.env.REACT_APP_API_KEY;
-
-    const API = `http://www.omdbapi.com/?apikey=${apikey}&i=${modalData}`;
-
+    const API = `http://www.omdbapi.com/?apikey=${apikey}&i=${modalData}&plot=full`;
     const { data, error, loading } = useFetch(API);
 
     const closeModal = () => {

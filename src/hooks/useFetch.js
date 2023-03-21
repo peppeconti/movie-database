@@ -19,8 +19,8 @@ function useFetch(url) {
             .then(res => res.json())
             .then(res => {
                
-                    setLoading(false);
                     setData(res);
+                    setLoading(false);
                 
             })
             .catch(err => {
