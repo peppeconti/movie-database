@@ -60,7 +60,7 @@ const Search = ({ setPage }) => {
             console.log(values);
             const queryStr = queryString(values);
             if (setPage) setPage(1);
-            navigate(`/query?${queryStr}`)
+            navigate(`/results?${queryStr}`)
         },
     });
 
