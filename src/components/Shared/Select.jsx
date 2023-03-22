@@ -1,28 +1,31 @@
-import React from "react";
+import React from 'react';
 import Select from 'react-select';
 
-const CustomSelect = ({ onChange, options, value }) => {
+const CustomSelect = ({ options, value, onChange }) => {
 
     const defaultValue = (options, value) => {
-        return options ? options.find(option => option.value === value) : '';
+        return options ? options.find(option => option.value === value) : null;
     };
 
     return (
-        <Select
-            onChange={value => onChange(value)}
-            value={defaultValue(options, value)}
-            options={options}
-            styles={
-                {
-                    control: (styles, state) => ({
-                        ...styles,
-                        borderRadius: '50px',
-                    }),
-
+        <>
+            <Select
+                value={defaultValue(options, value)}
+                onChange={val => onChange(val)}
+                isClearable
+                options={options}
+                styles={
+                    {
+                        control: (styles, state) => ({
+                            ...styles,
+                            borderRadius: '50px',
+                        }),
+    
+                    }
                 }
-            }
-        />
-    )
-}
+            />
+        </>
+    );
+};
 
 export default CustomSelect;

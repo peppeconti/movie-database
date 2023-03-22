@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import useQuery from "../../hooks/useQuery";
 
 const options = [
-    { value: '', label: 'All types' },
     { value: 'movie', label: 'Movie' },
     { value: 'series', label: 'Series' },
     { value: 'episode', label: 'Episode' }
@@ -25,9 +24,9 @@ const years = () => {
     return years;
 }
 
-const years_options = [{ value: '', label: 'All year' }, years().map(e => {
+const years_options = years().map(e => {
     return { value: e.toString(), label: e.toString() }
-})].flat();
+});
 
 
 const Search = ({ setPage }) => {
@@ -58,7 +57,7 @@ const Search = ({ setPage }) => {
         },
         validate,
         onSubmit: values => {
-            //console.log(values);
+            console.log(values);
             const queryStr = queryString(values);
             if (setPage) setPage(1);
             navigate(`/query?${queryStr}`)
@@ -94,7 +93,10 @@ const Search = ({ setPage }) => {
                     <Select
                         options={options}
                         value={formik.values.type}
-                        onChange={(value) => formik.setFieldValue('type', value.value)}
+                        onChange={val => {
+                            if (val) formik.setFieldValue('type', val.value)
+                            else formik.setFieldValue('type', '')
+                        }}
                         className={classes.select}
                     />
                 </div>
@@ -102,7 +104,10 @@ const Search = ({ setPage }) => {
                     <Select
                         options={years_options}
                         value={formik.values.y}
-                        onChange={(value) => formik.setFieldValue('y', value.value)}
+                        onChange={val => {
+                            if (val) formik.setFieldValue('y', val.value)
+                            else formik.setFieldValue('y', '')
+                        }}
                         className={classes.select}
                     />
                 </div>

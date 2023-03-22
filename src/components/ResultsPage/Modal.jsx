@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import classes from './Modal.module.css';
 import useFetch from "../../hooks/useFetch";
@@ -34,10 +33,10 @@ const Modal = ({ setModal, modalData }) => {
     }
 
     return (
-        <Fragment>
+        <>
             {ReactDOM.createPortal(<Backdrop closeModal={closeModal} />, portalElement)}
             {ReactDOM.createPortal(<MovieInfo data={data} loading={loading} closeModal={closeModal} />, portalElement)}
-        </Fragment>
+        </>
     );
 };
 
