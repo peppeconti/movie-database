@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from 'react-select';
 
-const CustomSelect = ({ options, value, onChange }) => {
+const CustomSelect = ({ options, value, placeholder, onChange }) => {
 
     const defaultValue = (options, value) => {
         return options ? options.find(option => option.value === value) : null;
@@ -14,9 +14,10 @@ const CustomSelect = ({ options, value, onChange }) => {
                 onChange={val => onChange(val)}
                 isClearable
                 options={options}
+                placeholder={placeholder}
                 styles={
                     {
-                        control: (styles, state) => ({
+                        control: styles => ({
                             ...styles,
                             borderRadius: '50px',
                         }),
