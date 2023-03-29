@@ -93,7 +93,7 @@ const Search = ({ setPage }) => {
                     <Select
                         options={options}
                         value={formik.values.type}
-                        placeholder='Select a type'
+                        placeholder='Select type'
                         onChange={val => {
                             if (val) formik.setFieldValue('type', val.value)
                             else formik.setFieldValue('type', '')
@@ -105,7 +105,7 @@ const Search = ({ setPage }) => {
                     <Select
                         options={years_options}
                         value={formik.values.y}
-                        placeholder='Select a year'
+                        placeholder='Select year'
                         onChange={val => {
                             if (val) formik.setFieldValue('y', val.value)
                             else formik.setFieldValue('y', '')
