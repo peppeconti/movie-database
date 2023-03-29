@@ -15,7 +15,7 @@ const Results = ({ page, setPage }) => {
 
     const queryStr = queryString();
     const apikey = process.env.REACT_APP_API_KEY;
-    const API = `http://www.omdbapi.com/?apikey=${apikey}&${queryStr}&page=${page}`;
+    const API = `https://www.omdbapi.com/?apikey=${apikey}&${queryStr}&page=${page}`;
 
     const { data, error, loading } = useFetch(API);
 

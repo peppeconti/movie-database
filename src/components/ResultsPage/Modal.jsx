@@ -25,7 +25,7 @@ const portalElement = document.getElementById('overlay');
 const Modal = ({ setModal, modalData }) => {
 
     const apikey = process.env.REACT_APP_API_KEY;
-    const API = `http://www.omdbapi.com/?apikey=${apikey}&i=${modalData}&plot=full`;
+    const API = `https://www.omdbapi.com/?apikey=${apikey}&i=${modalData}&plot=full`;
     const { data, error, loading } = useFetch(API);
 
     const closeModal = () => {

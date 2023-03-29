@@ -102,3 +102,11 @@ dist
 
 # TernJS port file
 .tern-port
+
+# build
+build
+
+# firebase
+.firebase
+.firebaserc
+firebase.json
