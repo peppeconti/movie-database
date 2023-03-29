@@ -14,7 +14,7 @@ const MovieInfo = ({ data, loading }) => {
 
     return (
         <div className={classes.message}>
-            {loading && <p>ciccio Load</p>}
+            {loading && <p>Loading...</p>}
             {(!loading && data) && <p>{data.Plot}</p>}
         </div>
     );
