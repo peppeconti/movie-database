@@ -1,6 +1,6 @@
 import React from "react";
 import classes from './Search.module.css';
-import Select from "./Select";
+import CustomSelect from "./CustomSelect";
 import { useFormik } from "formik";
 import { BiSearch } from 'react-icons/bi';
 import { useNavigate } from "react-router-dom";
@@ -90,7 +90,7 @@ const Search = ({ setPage }) => {
             </div>
             {<div className={classes.select_wrapper}>
                 <div className={classes.select}>
-                    <Select
+                    <CustomSelect
                         options={options}
                         value={formik.values.type}
                         placeholder='Select type'
@@ -102,7 +102,7 @@ const Search = ({ setPage }) => {
                     />
                 </div>
                 <div className={classes.select}>
-                    <Select
+                    <CustomSelect
                         options={years_options}
                         value={formik.values.y}
                         placeholder='Select year'
