@@ -1,6 +1,7 @@
 import classes from './Pagination.module.css';
 import usePagination from "../../hooks/usePagination";
-
+import { MdKeyboardDoubleArrowRight } from 'react-icons/md';
+import { MdKeyboardDoubleArrowLeft } from 'react-icons/md';
 
 const Pagination = ({ totalCount, currentPage, setPage }) => {
 
@@ -24,7 +25,7 @@ const Pagination = ({ totalCount, currentPage, setPage }) => {
         <ul className={classes.pagination_container}>
             {/* Left navigation arrow */}
             <li className={arrow_left()} onClick={() => setPage(prev => --prev)}>
-                <div className={classes.arrow}>&#8250;</div>
+                <div className={classes.arrow}><MdKeyboardDoubleArrowLeft /></div>
             </li>
             {pagination.map((pageNumber, i) => <li
                 key={i}
@@ -35,7 +36,7 @@ const Pagination = ({ totalCount, currentPage, setPage }) => {
             </li>)}
             {/*  Right Navigation arrow */}
             <li className={arrow_right()} onClick={() => setPage(prev => ++prev)}>
-                <div className={classes.arrow}>&#8250;</div>
+                <div className={classes.arrow}><MdKeyboardDoubleArrowRight/></div>
             </li>
         </ul>
     )
