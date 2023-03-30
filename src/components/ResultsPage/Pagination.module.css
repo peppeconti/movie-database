@@ -30,6 +30,10 @@
     color: #fff;
 }
 
+.dots:hover {
+    background-color: transparent;
+}
+
 .arrow {
     display: flex;
     align-items: center;

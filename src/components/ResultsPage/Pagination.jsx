@@ -7,10 +7,17 @@ const Pagination = ({ totalCount, currentPage, setPage }) => {
 
     const pagination = usePagination(totalCount, currentPage);
 
-    //console.log(pagination);
+    console.log(pagination);
 
     const pag_items = (pageNumber) => {
-        return (pageNumber === currentPage) ? [classes.pagination_item, classes.selected].join(' ') : classes.pagination_item;
+        if (pageNumber === currentPage) {
+            return [classes.pagination_item, classes.selected].join(' ');
+        } else if (pageNumber === '...') {
+            return [classes.pagination_item, classes.dots].join(' ');
+        }
+        else {
+            return classes.pagination_item;
+        };
     }
 
     const arrow_left = () => {
@@ -36,7 +43,7 @@ const Pagination = ({ totalCount, currentPage, setPage }) => {
             </li>)}
             {/*  Right Navigation arrow */}
             <li className={arrow_right()} onClick={() => setPage(prev => ++prev)}>
-                <div className={classes.arrow}><MdKeyboardDoubleArrowRight/></div>
+                <div className={classes.arrow}><MdKeyboardDoubleArrowRight /></div>
             </li>
         </ul>
     )
