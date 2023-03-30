@@ -30,6 +30,10 @@
     color: #fff;
 }
 
+.dots {
+    cursor: default;
+}
+
 .dots:hover {
     background-color: transparent;
 }
