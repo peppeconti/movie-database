@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom';
 import classes from './Modal.module.css';
 import useFetch from "../../hooks/useFetch";
+import Spinner from '../Shared/Spinner';
 
 const Backdrop = ({ closeModal }) => {
     return (
@@ -14,7 +15,7 @@ const MovieInfo = ({ data, loading }) => {
 
     return (
         <div className={classes.message}>
-            {loading && <p>Loading...</p>}
+            {loading && <div className={classes.spinner}><Spinner /></div>}
             {(!loading && data) && <p>{data.Plot}</p>}
         </div>
     );

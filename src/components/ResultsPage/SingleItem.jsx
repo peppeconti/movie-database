@@ -11,10 +11,12 @@ const SingleItem = ({ id, title, img, number, year, type, setModal, setModalData
     return (
         <li className={classes.item}>
             <div className={classes.number}>
-                {number}
+                <span>
+                    {number}
+                </span>
             </div>
             <figure>
-                <img src={img !== 'N/A' ? img : not_found} alt={title}/>
+                <img src={img !== 'N/A' ? img : not_found} alt={title} />
             </figure>
             <div className={classes.title}>
                 <p>{title} ({type})</p>
