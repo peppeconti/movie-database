@@ -50,19 +50,7 @@
 
 /* FLUID TYPOGRAPHY */
 
-@media screen and (min-width: 280px) {
-    .pagination_container {
-        gap: calc(4px + 12 * ((100vw - 280px) / 170));
-    }
-
-    .pagination_item {
-        font-size: calc(10px + 6 * ((100vw - 280px) / 170));
-        width: calc(26px + 6 * ((100vw - 280px) / 170));
-        height: calc(26px + 6 * ((100vw - 280px) / 170));
-    }
-}
-
-@media screen and (max-width: 280px) {
+@media screen and ((min-width: 280px) or (max-width: 280px)) {
     .pagination_container {
         gap: calc(4px + 12 * ((100vw - 280px) / 170));
     }
