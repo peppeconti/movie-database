@@ -10,8 +10,8 @@
 
 .item {
     list-style: none;
-    padding: 1rem 0;
-    margin-bottom: 1rem;
+    padding: 0;
+    margin-bottom: 2rem;
     display: flex;
     justify-content: center;
     align-items: stretch;
