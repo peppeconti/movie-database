@@ -1,3 +1,8 @@
+.results__page {
+    display: flex;
+    flex-direction: column;
+}
+
 .search__wrapper {
     height: auto;
     padding: 4rem 1rem;
@@ -8,5 +13,8 @@
 }
 
 .results__wrapper {
-    padding: 2rem 10rem;
+    padding: 2rem 2rem;
+    width: 100%;
+    max-width: 1000px;
+    align-self: center;
 }
