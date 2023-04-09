@@ -50,3 +50,31 @@
 .disabled {
     display: none;
 }
+
+@media screen and (max-width: 450px) {
+
+    .pagination_container {
+        gap: .4rem;
+    }
+
+    .pagination_item {
+        font-size: .9rem;
+        width: 1.6rem;
+        height: 1.6rem;
+        padding: .4rem;
+    }
+}
+
+@media screen and (max-width: 374px) {
+
+    .pagination_container {
+        gap: .3rem;
+    }
+
+    .pagination_item {
+        font-size: .8rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        padding: .4rem;
+    }
+}

@@ -5,7 +5,7 @@
 
 .search__wrapper {
     height: auto;
-    padding: 4rem 1rem;
+    padding: 4rem 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,4 +17,18 @@
     width: 100%;
     max-width: 1000px;
     align-self: center;
+}
+
+@media screen and (max-width: 700px) {
+    .results__wrapper, .search__wrapper {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .results__wrapper, .search__wrapper {
+        padding-left: .5rem;
+        padding-right: .5rem;
+    }
 }
