@@ -58,10 +58,10 @@
     }
 
     .pagination_item {
-        font-size: .9rem;
+        font-size: 1rem;
         width: 1.6rem;
         height: 1.6rem;
-        padding: .4rem;
+        padding: .5rem;
     }
 }
 
@@ -72,9 +72,9 @@
     }
 
     .pagination_item {
-        font-size: .8rem;
+        font-size: 1rem;
         width: 1.5rem;
         height: 1.5rem;
-        padding: .4rem;
+        padding: .5rem;
     }
 }
