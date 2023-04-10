@@ -7,7 +7,7 @@ const Pagination = ({ totalCount, currentPage, setPage }) => {
 
     const pagination = usePagination(totalCount, currentPage);
 
-    console.log(pagination);
+    // console.log(pagination);
 
     const pag_items = (pageNumber) => {
         if (pageNumber === currentPage) {

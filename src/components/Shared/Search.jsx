@@ -40,14 +40,9 @@ const Search = ({ setPage }) => {
 
         if (!values.s) {
             errors.s = 'search bar is empty';
-            //console.log(errors.search);
         };
         return errors;
     }
-
-    /*useEffect(() => {
-        console.log(currentParams);
-    }, [currentParams])*/
 
     const formik = useFormik({
         initialValues: {
@@ -57,19 +52,12 @@ const Search = ({ setPage }) => {
         },
         validate,
         onSubmit: values => {
-            console.log(values);
+            //console.log(values);
             const queryStr = queryString(values);
             if (setPage) setPage(1);
             navigate(`/results?${queryStr}`)
         },
     });
-
-    /*const filterResults = (type) => {
-        formik.setFieldValue(type, value.value);
-        /*if (formik.values.search) {
-            formik.handleSubmit();
-        }
-    }*/
 
     return (
         <form className={classes.search_box} onSubmit={formik.handleSubmit}>

@@ -11,7 +11,7 @@ const Backdrop = ({ closeModal }) => {
 
 const MovieInfo = ({ data, loading }) => {
 
-    console.log(data);
+    // console.log(data);
 
     return (
         <div className={classes.message}>
