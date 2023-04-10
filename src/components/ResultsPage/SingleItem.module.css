@@ -1,4 +1,13 @@
-.number {
+.item {
+    list-style: none;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 2rem;
+}
+
+.item .number {
     background-color: #2d2d2d;
     display: flex;
     width: 45px;
@@ -6,16 +15,6 @@
     align-items: center;
     font-size: 1.1rem;
     color: #fff;
-}
-
-.item {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 2rem;
 }
 
 .item figure {
@@ -28,8 +27,29 @@
     width: 100%;
 }
 
-.title {
+.item .title {
     flex: 1;
     text-align: center;
     border: 2px solid red;
+}
+
+@media screen and (max-width: 600px ) {
+    .item {
+        gap: 0;
+        margin-bottom: 1rem;
+        flex-direction: column;
+    }
+
+    .item .number {
+        width: 100%;
+    }
+
+    .item figure {
+        order: 3;
+        width: 100%;
+    }
+
+    .item .title {
+        order: 2;
+    }
 }
