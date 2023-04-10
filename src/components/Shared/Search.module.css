@@ -13,8 +13,11 @@
     height: 100%;
     flex: 1;
     padding: 0 1rem;
+    appearance: none;
     border-top-left-radius: 2rem;
     border-bottom-left-radius: 2rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     outline: none;
     border: none;
     font-size: 1rem;
