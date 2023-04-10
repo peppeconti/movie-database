@@ -43,6 +43,10 @@
     cursor: pointer;
 }
 
+.search_btn:hover {
+    opacity: .8;
+}
+
 .search_icon {
     color: #fff;
     font-size: 1.5rem;
