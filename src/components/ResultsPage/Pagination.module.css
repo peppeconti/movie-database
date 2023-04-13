@@ -61,6 +61,18 @@
     }
 }
 
+@media screen and (max-width: 280px) {
+    .pagination_container {
+        gap: 4px;
+    }
+
+    .pagination_item {
+        font-size: 10px;
+        width: 26px;
+        height: 26px;
+    }
+}
+
 @media screen and (min-width: 450px) {
     .pagination_container {
         gap: 16px;

@@ -77,3 +77,14 @@
         padding: 0;
     }
 }
+
+@media screen and (max-width: 350px) {
+
+    .input_wrapper {
+        margin-bottom: .5rem;
+    }
+
+    .select_wrapper {
+        flex-direction: column;
+    }
+}
