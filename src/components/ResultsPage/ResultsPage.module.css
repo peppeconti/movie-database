@@ -1,7 +1,6 @@
 .results__page {
     display: flex;
     flex-direction: column;
-    min-width: 280px;
 }
 
 .search__wrapper {
