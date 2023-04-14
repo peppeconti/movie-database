@@ -4,7 +4,6 @@ import useFetch from "../../hooks/useFetch";
 import useQuery from "../../hooks/useQuery";
 import Pagination from "./Pagination";
 import Modal from "./Modal";
-import Spinner from "../Shared/Spinner";
 import SingleItem from "./SingleItem";
 
 const Results = ({ page, setPage }) => {
