@@ -1,6 +1,4 @@
 .results__page {
-    display: flex;
-    flex-direction: column;
     min-width: 280px;
 }
 
@@ -18,7 +16,6 @@
     width: 100%;
     max-width: 1000px;
     align-self: center;
-    min-height: 80vh;
 }
 
 @media screen and (max-width: 700px) {
