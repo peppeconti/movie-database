@@ -1,5 +1,8 @@
 .results__page {
     min-width: 280px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .search__wrapper {
@@ -16,6 +19,7 @@
     width: 100%;
     max-width: 1000px;
     align-self: center;
+    flex: 1;
 }
 
 @media screen and (max-width: 700px) {
