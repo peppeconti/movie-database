@@ -26,6 +26,7 @@
     transform: translate(-50%, -50%);
     font-size: 1rem;
     caret-color: transparent;
+    overflow: auto;
 }
 
 .spinner {
