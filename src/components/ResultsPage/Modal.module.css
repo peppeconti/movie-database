@@ -15,7 +15,7 @@
 
 .message {
     position: fixed;
-    padding: 1rem;
+    padding: 2rem;
     z-index: 10;
     top: 50%;
     left: 50%;
@@ -35,4 +35,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.spinner_result {
+    position: fixed;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    caret-color: transparent;
 }

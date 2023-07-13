@@ -84,7 +84,7 @@ const Results = ({ page, setPage }) => {
           {pagination}
         </>
       )}
-      {loading && <Modal />}
+      {loading && <Modal result={true}/>}
       {modal && <Modal setModal={setModal} modalData={modalData} />}
     </div>
   );
