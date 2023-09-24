@@ -17,11 +17,11 @@ const SingleItem = ({ id, title, img, number, year, type, setModal, setModalData
             </div>
             <figure>
                 <img src={img !== 'N/A' ? img : not_found} alt={title} />
-                <button className={classes.plot} onClick={openModal}>PLOT</button>
             </figure>
-            <div className={classes.title}>
+            <div className={classes.movie}>
                 <p className={classes.title}>{title} ({type})</p>
                 <p className={classes.year}>{year}</p>
+                <button className={classes.plot} onClick={openModal}>PLOT</button>
             </div>
         </li>
     )
