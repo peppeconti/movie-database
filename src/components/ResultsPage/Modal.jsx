@@ -27,9 +27,15 @@ const MovieInfo = ({ data, loading, result }) => {
           {!loading && data && (
             <div>
               <p className={classes.title}>{data.Title}</p>
-              <p>Director: {data.Director}</p> 
-              <p>Released: {data.Released}</p>
-              <p>{data.Plot}</p>
+              <p className={classes.director}>
+                Director: {data.Director}, {data.Country}, {data.Released}
+              </p>
+              <p className={classes.actors}>Starring: {data.Actors}</p>
+              <div className={classes.plot}>
+                <p>Plot</p>
+                <p>{data.Plot}</p>
+              </div>
+              <p className={classes.awards}>Awards: {data.Awards}</p>
             </div>
           )}
         </div>
