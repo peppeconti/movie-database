@@ -3,6 +3,7 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .search__wrapper {
@@ -20,6 +21,19 @@
     max-width: 1000px;
     align-self: center;
     flex: 1;
+}
+
+.to__home {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.to__home:hover {
+    opacity: .8;
 }
 
 @media screen and (max-width: 700px) {

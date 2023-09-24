@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import classes from "./ResultsPage.module.css";
 import Search from "../Shared/Search";
 import Results from "./Results";
@@ -11,6 +12,7 @@ const ResultsPage = () => {
   return (
     <section className={classes.results__page}>
       <div className={classes.search__wrapper}>
+        <Link className={classes.to__home} to="/">HOME</Link>
         <Search setPage={setPage} />
       </div>
       <div className={classes.results__wrapper}>

@@ -24,7 +24,14 @@ const MovieInfo = ({ data, loading, result }) => {
               <Spinner />
             </div>
           )}
-          {!loading && data && <p>{data.Plot}</p>}
+          {!loading && data && (
+            <div>
+              <p className={classes.title}>{data.Title}</p>
+              <p>Director: {data.Director}</p> 
+              <p>Released: {data.Released}</p>
+              <p>{data.Plot}</p>
+            </div>
+          )}
         </div>
       )}
     </div>
@@ -36,7 +43,7 @@ const portalElement = document.getElementById("overlay");
 const Modal = ({ setModal, modalData, result }) => {
   const apikey = process.env.REACT_APP_API_KEY;
   const API = `https://www.omdbapi.com/?apikey=${apikey}&i=${modalData}&plot=full`;
-  const { data, error, loading } = useFetch(API);
+  const { data, loading } = useFetch(API);
 
   const closeModal = () => {
     setModal(false);

@@ -45,3 +45,8 @@
     transform: translate(-50%, -50%);
     caret-color: transparent;
 }
+
+.title {
+    font-size: 1.3rem;
+    text-align: center;
+}
