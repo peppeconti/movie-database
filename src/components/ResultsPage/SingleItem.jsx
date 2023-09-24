@@ -16,7 +16,7 @@ const SingleItem = ({ id, title, img, number, year, type, setModal, setModalData
                 </span>
             </div>
             <figure>
-                <img src={img !== 'N/A' ? img : not_found} alt={title} />
+                <img onClick={openModal} src={img !== 'N/A' ? img : not_found} alt={title} />
             </figure>
             <div className={classes.movie}>
                 <p className={classes.title}>{title} ({type})</p>

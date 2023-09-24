@@ -67,10 +67,12 @@
     outline: none;
     border: none;
     cursor: pointer;
+    background-color: #2d2d2d;
+    color: #fff;
 }
 
 .plot:hover {
-    box-shadow: 1px 1px 2px #000;
+    opacity: .8;
 }
 
 @media screen and (max-width: 600px ) {
@@ -92,5 +94,9 @@
 
     .item .movie {
         order: 2;
+    }
+
+    .title, .year, .plot {
+        display: none;
     }
 }
