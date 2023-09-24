@@ -1,4 +1,14 @@
 .footer {
     height: 200px;
     background-color: #2d2d2d;
+    display: flex;
+    padding: 1rem 1rem;
+    padding-bottom: 1.5rem;
+    align-items: flex-end;
+    color: #fff;
+}
+
+.footer p {
+    flex: 1;
+    text-align: center;
 }
